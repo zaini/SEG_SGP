@@ -58,6 +58,8 @@ To merge your new branch to the master branch, first go to the master branch wit
 
 You can delete branches when you're done with them, but we don't do that here. If you do need to delete a branch (PLEASE DONT DO THIS IF YOU DONT NEED TO), you can do ```git branch -d issue10```
 
+You can push your branch by using ```git push origin issue10```
+
 There might be some issues when merging branches, which can be fixed by having a look at [this](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts) guide or asking the team.
 
 ## Standards
