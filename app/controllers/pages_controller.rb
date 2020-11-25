@@ -8,7 +8,8 @@ class PagesController < ApplicationController
   def create  
     @name = params[:page][:name]
     @password = params[:page][:password]
-    if @name != Homepage::Name || @password != Homepage::PW
+
+    if !Users.exists?(first_name: @name, password: @password)
       redirect_to  :controller => 'pages', :action => 'error'
     end
   end
