@@ -9,8 +9,8 @@ class PagesController < ApplicationController
     @name = params[:page][:name]
     @password = params[:page][:password]
 
-    if !Users.exists?(first_name: @name, password: @password)
-      redirect_to  :controller => 'pages', :action => 'error'
+    if !User.exists?(first_name: @name, password: @password)
+      redirect_to :controller => 'pages', :action => 'error'
     end
   end
 
