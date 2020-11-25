@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-    belongs_to: admin
+    belongs_to :admin
 end
