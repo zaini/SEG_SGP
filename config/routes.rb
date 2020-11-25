@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'pages#homepage'
+  post 'pages/create'
+  get 'pages/error'
+
   resources :users do
     member do
       get :delete

@@ -1,0 +1,25 @@
+<!---Diaplay login form.--->
+
+<div class="login-form-container clearfix">
+  <%= image_tag("logos/logo1.png",width:"200") %>
+  <h5>Please log in.</h5>
+  <br>
+  <div class="login-form">
+    <%= form_with scope: :page, url: pages_create_path, local:true do |f| %>
+    <dl class="form">
+      <dt><%= f.label :name, "Username:" %></dt>
+      <dd><%= f.text_field :name %></dd>
+    </dl>
+
+    <dl class="form">
+      <dt><%= f.label :password, "Password:" %></dt>
+      <dd><%= f.password_field :password %></dd>
+    </dl>
+
+
+    <p><%= f.submit "Log In", :class => "login-button btn btn-primary" %></p>
+    <% end %>
+  </div>
+</div>
+
+

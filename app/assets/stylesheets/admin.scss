@@ -1,3 +1,49 @@
-// Place all the styles related to the Admin controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'bootstrap/dist/css/bootstrap';
+
+.btn {
+  background-color: #cb3915;
+  border-color: #cb3915;
+  color: #ffffff;
+}
+
+.btn:hover {
+  background-color: #3773c1;
+  border-color: #3773c1;
+}
+
+.login-form-container {
+  width: 420px;
+  margin: 30px auto;
+  border: 1px solid #ddd;
+  padding: 2em;
+
+  .login-form {
+    width: 100%;
+  }
+
+  .login-button {
+    padding: 13px;
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+
+.remember-me {
+  * {
+    width: auto;
+  }
+
+  #remember_me {
+    margin-left: 0;
+  }
+}
+
+.prompt {
+  color: #880000;
+}
+
+#pic{
+  width: 80px;
+  height: 80px;
+  
+}
