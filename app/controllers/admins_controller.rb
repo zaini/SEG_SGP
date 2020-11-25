@@ -3,6 +3,7 @@ class AdminsController < ApplicationController
   end
 
   def show
+    @admin = Admin.find(params[:id])
   end
 
   def new
@@ -20,6 +21,6 @@ class AdminsController < ApplicationController
   def delete
   end
 
-  def destory
+  def destroy
   end
 end
