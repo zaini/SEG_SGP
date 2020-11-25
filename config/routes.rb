@@ -1,6 +1,25 @@
 Rails.application.routes.draw do
-  root 'homepage#homepage'
-  # get 'create_profile/create_profile'
-  match 'admin/create_profile', :to => 'create_profile#create_profile', :via => :get
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :users do
+    member do
+      get :delete
+    end
+  end
+
+  resources :admins do
+    member do
+      get :delete
+    end
+  end
+  
+  # get 'admins/index'
+  # get 'admins/show'
+  # get 'admins/new'
+  # get 'admins/edit'
+  # get 'admins/delete'
+
+  # get 'users/index'
+  # get 'users/show'
+  # get 'users/new'
+  # get 'users/edit'
+  # get 'users/delete'
 end
