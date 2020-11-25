@@ -1,2 +1,10 @@
 <h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
+<p>Create a new user here</p>
+<%= link_to("View all users", users_path()) %>
+
+<%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <%= f.submit("Create User") %>
+<% end %>

@@ -1,2 +1,10 @@
 <h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<p>Edit a user here</p>
+<%= link_to("View all users", users_path()) %>
+
+<%= form_for(@user) do |f| %>
+
+    <%= render(partial: 'form', locals: {f: f}) %>
+
+    <%= f.submit("Update User") %>
+<% end %>
