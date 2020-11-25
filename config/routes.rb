@@ -1,15 +1,26 @@
 Rails.application.routes.draw do
-  get 'admin/index'
-  get 'admin/show'
-  get 'admin/new'
-  get 'admin/edit'
-  get 'admin/delete'
+  resources :users do
+    member do
+      get :delete
+    end
+  end
 
-  get 'user/index'
-  get 'user/show'
-  get 'user/new'
-  get 'user/edit'
-  get 'user/delete'
+  resources :admins do
+    member do
+      get :delete
+    end
+  end
+  # get 'admins/index'
+  # get 'admins/show'
+  # get 'admins/new'
+  # get 'admins/edit'
+  # get 'admins/delete'
+
+  # get 'users/index'
+  # get 'users/show'
+  # get 'users/new'
+  # get 'users/edit'
+  # get 'users/delete'
 
   # get 'manage_users/create_user'
   match 'admin/manage_users/create', :to => 'manage_users#create_user', :via => :get
