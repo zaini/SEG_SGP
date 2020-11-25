@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+  
   # get 'admins/index'
   # get 'admins/show'
   # get 'admins/new'
