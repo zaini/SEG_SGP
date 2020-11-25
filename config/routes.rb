@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'extras/loan'
+  get 'extras/contact_us'
+  get 'extras/landing'
+  get 'extras/savings'
   root 'pages#homepage'
   post 'pages/create'
   get 'pages/error'
