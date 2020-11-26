@@ -1,2 +1,68 @@
-<h1>Extras#landing</h1>
-<p>Find me in app/views/extras/landing.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- All the things for Bootstrap CDN -->
+
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+  <center><%= image_tag("logos/logo.png",width:"150", class:"rounded") %></center>
+
+<div class="container-xl">
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag("sampleimage/piggybank.jpg", class:"img-thumbnail") %>
+      <div class="carousel-caption">
+        <h2><b>Savings Account</b></h2>
+        <h4>Explore our account types.</h4>
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <%= image_tag("sampleimage/loanimg.jpg", class:"img-thumbnail") %>
+      <div class="carousel-caption">
+        <h2><b>Need a boost?</b></h2>
+        <h4>We offer many types of loans.</h4>
+    </div>
+    </div>
+
+    <div class="carousel-item">
+      <%= image_tag("sampleimage/angrybird.jpg", class:"img-thumbnail") %>
+      <div class="carousel-caption">
+    <h2><b>Facing Problems?</b></h2>
+    <h4>Don't be frustrated, contact us now!</h4>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- provided by bootstrap -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+</div>
+
+</div>
+
+
+</html>
