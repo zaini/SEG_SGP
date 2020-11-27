@@ -4,14 +4,13 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/error'
   
-  get 'extras/loan'
-  get 'extras/contact_us'
-  get 'extras/landing'
-  get 'extras/savings'
+  get 'loans', to: 'extras#loan'
+  get 'contact_us', to: 'extras#contact_us'
+  get 'savings', to: 'extras#savings'
   
   # These two require session to be validated
-  get 'pages/account'
-  get 'pages/admin_panel'
+  get 'account', to: 'pages#account'
+  get 'admin_panel', to: 'pages#admin_panel'
 
   post 'login', to: 'sessions#create_user'
   get 'login', to: 'sessions#new_user'
