@@ -7,6 +7,9 @@ class PagesController < ApplicationController
   def account
   end
 
+  def admin_panel
+  end
+
   # Account detail page
   def user_login
     @email = params[:page][:email]
@@ -24,7 +27,7 @@ class PagesController < ApplicationController
     @password = params[:page][:password]
     @admin = Admin.find_by(username: @name)
     if @admin && @admin.authenticate(@password)
-      redirect_to(admin_path(@admin))
+      redirect_to(pages_admin_panel_path(id: @admin))
     else
       redirect_to :controller => 'pages', :action => 'error'
     end

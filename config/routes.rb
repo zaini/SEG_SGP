@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   root 'pages#homepage'
   get 'pages/error'
+
+  # These two require session to be validated
   get 'pages/account'
+  get 'pages/admin_panel'
 
   post 'pages/user_login'
   match 'login', to: 'pages#homepage', via: :get
