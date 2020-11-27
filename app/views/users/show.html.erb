@@ -1,3 +1,20 @@
 <h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
-<p><%= link_to('Edit user', edit_user_path(@user)) %></p>
+<p>Showing specific user details</p>
+<p><%= link_to('Edit this user', edit_user_path(@user)) %></p>
+
+<table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Password</th>
+    </tr>
+    <tr>
+        <td><%= @user.first_name %></td>
+        <td><%= @user.middle_name %></td>
+        <td><%= @user.last_name %></td>
+        <td><%= @user.email %></td>
+        <td><%= @user.password %></td>
+    </tr>
+</table>
