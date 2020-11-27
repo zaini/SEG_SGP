@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'extras/contact_us'
   get 'extras/landing'
   get 'extras/savings'
-  root 'pages#homepage'
+  root 'extras#landing'
+  get 'pages/homepage'
   post 'pages/create'
   get 'pages/error'
 
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
+
   # get 'admins/index'
   # get 'admins/show'
   # get 'admins/new'
