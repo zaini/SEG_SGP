@@ -1,10 +1,7 @@
 <h1>Admin#edit</h1>
 <p>Edit a admin here</p>
 <%= link_to("View all admins", admins_path()) %>
-
 <%= form_for(@admin) do |f| %>
-
-    <%= render(partial: 'adminform', locals: {f: f}) %>
-
-    <%= f.submit("Update admin") %>
+  <%= render(partial: 'adminform', locals: {f: f}) %>
+  <%= f.submit("Update admin") %>
 <% end %>

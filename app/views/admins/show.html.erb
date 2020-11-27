@@ -1,16 +1,15 @@
 <h1>Admin#show</h1>
 <p>Showing specific admin details</p>
 <p><%= link_to('Edit this admin', edit_admin_path(@admin)) %></p>
-
 <table class="table">
-    <tr>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Password</th>
-    </tr>
-    <tr>
-        <td><%= @admin.username %></td>
-        <td><%= @admin.email %></td>
-        <td><%= @admin.password %></td>
-    </tr>
+  <tr>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Password</th>
+  </tr>
+  <tr>
+    <td><%= @admin.username %></td>
+    <td><%= @admin.email %></td>
+    <td><%= @admin.password %></td>
+  </tr>
 </table>

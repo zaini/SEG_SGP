@@ -1,29 +1,27 @@
 <h1>User#index</h1>
 <p>Listing all users</p>
-
 <%= link_to("Create new user", new_user_path()) %>
-
 <table class="table">
+  <tr>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
     <tr>
-        <th>First Name</th>
-        <th>Middle Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Actions</th>
+      <td><%= user.first_name %></td>
+      <td><%= user.middle_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.password %></td>
+      <td>
+        <%= link_to('Show', user_path(user)) %>
+        <%= link_to('Edit', edit_user_path(user)) %>
+        <%= link_to('Delete', delete_user_path(user)) %>
+      </td>
     </tr>
-    <% @users.each do |user| %>
-    <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.middle_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td>
-            <%= link_to('Show', user_path(user)) %>
-            <%= link_to('Edit', edit_user_path(user)) %>
-            <%= link_to('Delete', delete_user_path(user)) %>
-        </td>
-    </tr>
-    <% end %>
+  <% end %>
 </table>

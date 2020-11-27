@@ -1,10 +1,7 @@
 <h1>User#edit</h1>
 <p>Edit a user here</p>
 <%= link_to("View all users", users_path()) %>
-
 <%= form_for(@user) do |f| %>
-
-    <%= render(partial: 'userform', locals: {f: f}) %>
-
-    <%= f.submit("Update User") %>
+  <%= render(partial: 'userform', locals: {f: f}) %>
+  <%= f.submit("Update User") %>
 <% end %>

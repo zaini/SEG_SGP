@@ -1,12 +1,8 @@
 <h1>User#delete</h1>
 <p>delete user here</p>
-
 <%= link_to("View all users", users_path()) %>
-
 <%= form_for(@user, :method => "delete") do |f| %>
-    <p>Are you sure you want to delete this person?</p>
-
-    <%= render(partial: 'userform', locals: {f: f}) %>
-
-    <%= f.submit('delete user') %>
+  <p>Are you sure you want to delete this person?</p>
+  <%= render(partial: 'userform', locals: {f: f}) %>
+  <%= f.submit('delete user') %>
 <% end %>

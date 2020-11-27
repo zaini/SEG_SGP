@@ -1,12 +1,8 @@
 <h1>Admin#delete</h1>
 <p>delete admin here</p>
-
 <%= link_to("View all admins", admins_path()) %>
-
 <%= form_for(@admin, :method => "delete") do |f| %>
-    <p>Are you sure you want to delete this person?</p>
-
-    <%= render(partial: 'adminform', locals: {f: f}) %>
-
-    <%= f.submit('delete admin') %>
+  <p>Are you sure you want to delete this person?</p>
+  <%= render(partial: 'adminform', locals: {f: f}) %>
+  <%= f.submit('delete admin') %>
 <% end %>

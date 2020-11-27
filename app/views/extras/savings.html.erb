@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- All the things for Bootstrap CDN -->
-
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
+  <!-- All the things for Bootstrap CDN -->
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </head>
 </br>
 <div class="container">
-<div class="jumbotron">
-  <div class="row">
-    <div class="col">
-        <h1 class="display-3"><b>Savings </br>Accounts.</b></h1>
-        <p class="lead">A safe place to store your money.</p>
-        <hr>
-      </br>
-        <p><a class="btn btn-lg btn-outline-dark" href="/contact_us" role="button">Call us for more info.</a></p> </div>
-    <div class="col">
-        <%= image_tag("sampleimage/piggyandcoin.jpg",width:"500", class:"rounded") %> </div>
-
-      </div>
-</div>
-  <center><h3>Everyone is eligible, literally.</h3></center>
-  <hr>
-</br>
-  <div class="container">
+  <div class="jumbotron">
     <div class="row">
       <div class="col">
-    <div class="card bg-dark text-white">
-      <div class="card-body"><center><h3><b>Students</b></center></h3></div>
-    </div></br></div>
-
-      <div class="col">
-    <div class="card bg-light text-dark">
-      <div class="card-body"><center><h3><b>Adults</b></center></h3></center></div>
-    </div></br></div>
-
-      <div class="col">
-    <div class="card bg-dark text-white">
-      <div class="card-body"><center><h3><b>Business</b></center></h3></center></div>
-    </div><br></div>
-
-      <div class="col">
-    <div class="card bg-light text-dark">
-      <div class="card-body"><center><h3><b>Overseas</b></center></h3></center></div>
-    </div></br></div>
-
+        <h1 class="display-3"><b>Savings </br>Accounts.</b></h1>
+      <p class="lead">A safe place to store your money.</p>
+      <hr>
+    </br>
+    <p><a class="btn btn-lg btn-outline-dark" href="/contact_us" role="button">Call us for more info.</a></p>
   </div>
-    <center><p><a class="btn btn-lg btn-outline-dark" href="/contact_us" role="button">UP TO 1.88% P.A. CALL NOW!</a></p> </div></center>
-
+  <div class="col">
+    <%= image_tag("sampleimage/piggyandcoin.jpg",width:"500", class:"rounded") %> </div>
 </div>
 </div>
-
-
-
+<center>
+  <h3>Everyone is eligible, literally.</h3>
+</center>
+<hr>
+</br>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-dark text-white">
+        <div class="card-body"><center>
+            <h3><b>Students</b></center></h3>
+        </div>
+      </div>
+    </br></div>
+  <div class="col">
+    <div class="card bg-light text-dark">
+      <div class="card-body"><center>
+          <h3><b>Adults</b></center></h3>
+      </center></div>
+  </div>
+</br></div>
+<div class="col">
+  <div class="card bg-dark text-white">
+    <div class="card-body"><center>
+        <h3><b>Business</b></center></h3>
+    </center></div>
+</div>
+<br>
+</div>
+<div class="col">
+  <div class="card bg-light text-dark">
+    <div class="card-body"><center>
+        <h3><b>Overseas</b></center></h3>
+    </center></div>
+</div>
+</br></div>
+</div>
+<center>
+  <p><a class="btn btn-lg btn-outline-dark" href="/contact_us" role="button">UP TO 1.88% P.A. CALL NOW!</a></p>
+</div>
+</center>
+</div>
+</div>
 </html>
