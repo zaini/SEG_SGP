@@ -1,2 +1,10 @@
 <h1>Admin#new</h1>
-<p>Find me in app/views/admin/new.html.erb</p>
+<p>Create a new admin here</p>
+<%= link_to("View all admins", admins_path()) %>
+
+<%= form_for(@admin, :url => admins_path, :method => 'post') do |f| %>
+
+    <%= render(partial: 'adminform', locals: {f: f}) %>
+
+    <%= f.submit("Create admin") %>
+<% end %>

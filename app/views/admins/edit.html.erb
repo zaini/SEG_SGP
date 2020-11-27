@@ -1,2 +1,10 @@
 <h1>Admin#edit</h1>
-<p>Find me in app/views/admin/edit.html.erb</p>
+<p>Edit a admin here</p>
+<%= link_to("View all admins", admins_path()) %>
+
+<%= form_for(@admin) do |f| %>
+
+    <%= render(partial: 'adminform', locals: {f: f}) %>
+
+    <%= f.submit("Update admin") %>
+<% end %>
