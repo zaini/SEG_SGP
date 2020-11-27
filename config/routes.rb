@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
-  root 'pages#homepage'
+  root 'pages#index'
+  get 'pages/index'
   get 'pages/error'
 
   # These two require session to be validated
   get 'pages/account'
   get 'pages/admin_panel'
 
-  post 'pages/user_login'
-  match 'login', to: 'pages#homepage', via: :get
+  post 'login', to: 'sessions#create_user'
+  get 'login', to: 'sessions#new_user'
   match 'signup', to: 'users#new', via: :get
 
-  post 'pages/admin_login'
-  match 'admin/login', to: 'pages#adminlogin', via: :get
+  post 'admin/login', to: 'sessions#create_admin'
+  get 'admin/login', to: 'sessions#new_admin'
   match 'admin/signup', to: 'admins#new', via: :get
+
+  delete 'logout', to: 'sessions#destroy'
 
   resources :users do
     member do
@@ -25,16 +28,4 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
-  # get 'admins/index'
-  # get 'admins/show'
-  # get 'admins/new'
-  # get 'admins/edit'
-  # get 'admins/delete'
-
-  # get 'users/index'
-  # get 'users/show'
-  # get 'users/new'
-  # get 'users/edit'
-  # get 'users/delete'
 end
