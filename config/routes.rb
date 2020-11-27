@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  root 'pages#homepage'
+  get 'extras/loan'
+  get 'extras/contact_us'
+  get 'extras/landing'
+  get 'extras/savings'
+  root 'extras#landing'
+  get 'pages/homepage'
+  post 'pages/create'
+  
   get 'pages/error'
 
   # These two require session to be validated
@@ -25,7 +32,7 @@ Rails.application.routes.draw do
       get :delete
     end
   end
-  
+
   # get 'admins/index'
   # get 'admins/show'
   # get 'admins/new'
