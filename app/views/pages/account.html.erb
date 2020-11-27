@@ -1,0 +1,3 @@
+<!--display account details--->
+<% @user = User.find(params[:id]) %>
+<h1>Hello, <%= @user.first_name %></h1>
