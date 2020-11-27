@@ -12,8 +12,10 @@ class UsersController < ApplicationController
   end
 
   def create
+    @admin = Admin.find(1) # TODO this should be the id of the currently logged in admin
     @user = User.new(user_params)
-    if @user.valid && @user.save
+    @user.admin = @admin
+    if @user.valid? && @user.save
       redirect_to(users_path)
     else
       render('new')
@@ -45,7 +47,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :password)
+      params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :email_confirmation, :password, :password_confirmation)
     end
 
 end

@@ -4,7 +4,7 @@
 
 <%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
 
-    <%= render(partial: 'form', locals: {f: f}) %>
+    <%= render(partial: 'userform', locals: {f: f}) %>
 
     <%= f.submit("Create User") %>
 <% end %>
