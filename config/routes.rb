@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'pages#homepage'
   get 'pages/error'
+  get 'pages/account'
 
   post 'pages/user_login'
   match 'login', to: 'pages#homepage', via: :get

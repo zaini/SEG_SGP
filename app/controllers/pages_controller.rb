@@ -4,12 +4,17 @@ class PagesController < ApplicationController
   def homepage
   end
 
+  def account
+  end
+
   # Account detail page
   def user_login
-    @name = params[:page][:name]
+    @email = params[:page][:email]
     @password = params[:page][:password]
-
-    if !User.exists?(first_name: @name, password: @password)
+    @user = User.find_by(email: @email)
+    if @user && @user.authenticate(@password)
+      redirect_to(pages_account_path(id: @user))
+    else
       redirect_to :controller => 'pages', :action => 'error'
     end
   end
@@ -17,8 +22,8 @@ class PagesController < ApplicationController
   def admin_login
     @name = params[:page][:name]
     @password = params[:page][:password]
-    @admin = Admin.find_by(username: @name, password: @password)
-    if @admin
+    @admin = Admin.find_by(username: @name)
+    if @admin && @admin.authenticate(@password)
       redirect_to(admin_path(@admin))
     else
       redirect_to :controller => 'pages', :action => 'error'

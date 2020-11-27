@@ -7,8 +7,8 @@
   <div class="login-form">
     <%= form_with scope: :page, url: pages_user_login_path, local:true do |f| %>
     <dl class="form">
-      <dt><%= f.label :name, "Username:" %></dt>
-      <dd><%= f.text_field :name %></dd>
+      <dt><%= f.label :email, "Email:" %></dt>
+      <dd><%= f.text_field :email %></dd>
     </dl>
 
     <dl class="form">
