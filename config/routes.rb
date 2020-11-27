@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'extras#landing'
+  
   get 'pages/index'
   get 'pages/error'
-
+  
+  get 'extras/loan'
+  get 'extras/contact_us'
+  get 'extras/landing'
+  get 'extras/savings'
+  
   # These two require session to be validated
   get 'pages/account'
   get 'pages/admin_panel'
