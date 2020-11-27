@@ -62,11 +62,8 @@
           </div>
 
           <% if logged_in? %>
-            <li class="nav-item active">
-              <%=link_to 'Log Out', logout_path, method: :delete %>
-            </li>
+            <%=link_to 'Log Out', logout_path, method: :delete %>
           <% end %>
-
 
         </ul>
         <form class="form-inline my-2 my-lg-0">
