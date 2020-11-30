@@ -1,15 +1,22 @@
 class SessionsController < ApplicationController
   def new_user
+    if logged_in? && !is_admin?
+      redirect_to :controller => 'pages', :action => 'account'
+    end
   end
 
   def new_admin
+    if logged_in? && is_admin?
+      redirect_to :controller => 'pages', :action => 'admin_panel'
+    end
   end
 
   def create_user
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       login(user, false)
-      redirect_to(pages_account_path()) # when you login, go to the bank account page
+      redirect_to :controller => 'pages', :action => 'account'
+      # redirect_to(pages_account_path()) # when you login, go to the bank account page
     else
       # TODO merge errors with new
       redirect_to :controller => 'pages', :action => 'error'
@@ -21,7 +28,8 @@ class SessionsController < ApplicationController
     user = Admin.find_by(username: params[:session][:username])
     if user && user.authenticate(params[:session][:password])
       login(user, true)
-      redirect_to(pages_admin_panel_path()) # when you login, go to the admin panel page
+      redirect_to :controller => 'pages', :action => 'admin_panel'
+      # redirect_to(pages_admin_panel_path()) # when you login, go to the admin panel page
     else
       # TODO merge errors with new
       redirect_to :controller => 'pages', :action => 'error'
