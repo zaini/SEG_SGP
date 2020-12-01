@@ -33,4 +33,16 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  resources :transactions do
+    member do
+      get :delete
+    end
+  end
+
+  # get 'transactions/index'
+  # get 'transactions/show'
+  # get 'transactions/new'
+  # get 'transactions/edit'
+  # get 'transactions/delete'
 end
