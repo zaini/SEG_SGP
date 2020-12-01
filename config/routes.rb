@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'extras#landing'
   
-  get 'pages/index'
   get 'pages/error'
   
   get 'loans', to: 'extras#loan'

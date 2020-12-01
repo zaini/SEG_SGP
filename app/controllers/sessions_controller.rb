@@ -39,6 +39,6 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to pages_index_path # when you logout, go to the home index page
+    redirect_to root_path # when you logout, go to the home index page
   end
 end

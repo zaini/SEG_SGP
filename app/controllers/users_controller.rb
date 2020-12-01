@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :redirect_to_index_if_not_logged_in_as_admin
+  before_action :redirect_to_root_if_not_logged_in_as_admin
 
   def index
     @users = User.order(:id)
@@ -52,9 +52,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :email_confirmation, :password, :password_confirmation)
     end
 
-    def redirect_to_index_if_not_logged_in_as_admin
+    def redirect_to_root_if_not_logged_in_as_admin
       unless logged_in? && is_admin?
-        redirect_to(pages_index_path)
+        redirect_to(root_path)
       end
     end
 end
