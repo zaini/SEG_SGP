@@ -29,8 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
-  
-
   resources :admins do
     member do
       get :delete
