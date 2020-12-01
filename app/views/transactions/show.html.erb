@@ -1,2 +1,21 @@
-<h1>Transactions#show</h1>
-<p>Find me in app/views/transactions/show.html.erb</p>
+<h1>View transaction</h1>
+<p>Viewing specific transaction</p>
+<p><%= link_to('Edit this transaction', edit_transaction_path(@transaction)) %></p>
+<table class="table">
+  <tr>
+    <th>Bank Account ID</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Reference</th>
+    <th>Money In</th>
+    <th>Money Out</th>
+  </tr>
+  <tr>
+    <td><%= @transaction.baid %></td>
+    <td><%= @transaction.date %></td>
+    <td><%= @transaction.description %></td>
+    <td><%= @transaction.reference %></td>
+    <td><%= @transaction.money_in %></td>
+    <td><%= @transaction.money_out %></td>
+  </tr>
+</table>
