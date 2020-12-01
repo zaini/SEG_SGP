@@ -21,11 +21,15 @@ Rails.application.routes.draw do
 
   delete 'logout', to: 'sessions#destroy'
 
+  get 'admin_panel/users', to: 'users#index'
+
   resources :users do
     member do
       get :delete
     end
   end
+
+  
 
   resources :admins do
     member do
