@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :redirect_to_root_if_not_logged_in_as_admin
+  before_action :redirect_to_index_if_not_current_admins_user, only: [:show, :edit, :update, :delete, :destroy]
 
   def index
-    @users = User.order(:id)
+    @users = User.where(admin: current_user)
   end
 
   def show
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @admin = Admin.find(1) # TODO this should be the id of the currently logged in admin
+    @admin = current_user
     @user = User.new(user_params)
     @user.admin = @admin
     if @user.valid? && @user.save
@@ -55,6 +56,13 @@ class UsersController < ApplicationController
     def redirect_to_root_if_not_logged_in_as_admin
       unless logged_in? && is_admin?
         redirect_to(root_path)
+      end
+    end
+
+    def redirect_to_index_if_not_current_admins_user
+      @user = User.find(params[:id])
+      unless @user.admin == current_user
+        redirect_to(users_path)
       end
     end
 end
