@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'extras#landing'
   
-  get 'pages/index'
   get 'pages/error'
   
   get 'loans', to: 'extras#loan'
@@ -21,6 +20,8 @@ Rails.application.routes.draw do
   match 'admin/signup', to: 'admins#new', via: :get
 
   delete 'logout', to: 'sessions#destroy'
+
+  get 'admin_panel/users', to: 'users#index'
 
   resources :users do
     member do

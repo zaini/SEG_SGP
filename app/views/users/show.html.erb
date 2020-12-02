@@ -1,6 +1,7 @@
-<h1>User#show</h1>
-<p>Showing specific user details</p>
-<p><%= link_to('Edit this user', edit_user_path(@user)) %></p>
+<h1>View your user</h1>
+<p>This page shows you a particular user</p>
+<%= link_to("View all users", users_path()) %>
+<%= link_to('Edit this user', edit_user_path(@user)) %>
 <table class="table">
   <tr>
     <th>First Name</th>

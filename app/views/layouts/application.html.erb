@@ -16,11 +16,13 @@
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <% if !logged_in? %>
-          <%=link_to 'Log In', login_path %>
-        <% end %>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <% if !logged_in? %>
+                <%=link_to 'Log In', login_path %>
+              <% end %>
+            </li>
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -50,10 +52,12 @@
                   </div>
                 </li>
               </div>
-              <% if logged_in? %>
-                <%=link_to 'Log Out', logout_path, method: :delete %>
-              <% end %>
             </ul>
+            <% if logged_in? %>
+              <%=link_to 'Log Out', logout_path, method: :delete %>
+            <% else %>
+              <%=link_to 'Don\'t have online banking? Sign up.', root_path %>
+            <% end %>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

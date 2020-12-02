@@ -1,5 +1,5 @@
-<h1>User#new</h1>
-<p>Create a new user here</p>
+<h1>Create a new user</h1>
+<p>Create a new bank account and user here.</p>
 <%= link_to("View all users", users_path()) %>
 <%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
   <%= render(partial: 'userform', locals: {f: f}) %>
