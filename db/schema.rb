@@ -24,14 +24,17 @@ ActiveRecord::Schema.define(version: 2020_12_01_154849) do
   end
 
   create_table "bank_accounts", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "account_name"
-    t.integer "account_number"
+    t.string "account_number"
     t.string "sort_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
+    t.bigint "bank_account_id"
     t.datetime "date"
     t.text "description"
     t.string "reference"
@@ -39,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_154849) do
     t.decimal "money_out"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
   end
 
   create_table "users", force: :cascade do |t|

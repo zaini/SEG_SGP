@@ -41,6 +41,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :bank_accounts do
+    member do
+      get :delete
+    end
+  end
+
   # get 'transactions/index'
   # get 'transactions/show'
   # get 'transactions/new'

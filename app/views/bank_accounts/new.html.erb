@@ -1,0 +1,8 @@
+<h1>Create a new Bank Account for a user</h1>
+<p>Create a new transaction here. You can also generate a random transaction.</p>
+<%= link_to("View all transactions", transactions_path()) %>
+<%= link_to("View all transactions for this bank account ID", transactions_path()) %>
+<%= form_for(@transaction, :url => transactions_path, :method => 'post') do |f| %>
+  <%= render(partial: 'transactionform', locals: {f: f}) %>
+  <%= f.submit("Create transaction") %>
+<% end %>

@@ -1,14 +1,14 @@
-class TransactionsController < ApplicationController
+class BankAccountsController < ApplicationController
   def index
-    @transactions = Transaction.order(:id)
+    @bank_account = BankAccount.order(:id)
   end
 
   def show
-    @transaction = Transaction.find(params[:id])
+    @bank_account = BankAccount.find(params[:id])
   end
 
   def new
-    @transaction = Transaction.new
+    @bank_account = BankAccount.new
   end
 
   def create
@@ -33,7 +33,7 @@ class TransactionsController < ApplicationController
   end
 
   private
-  def transaction_params
-    params.require(:transaction).permit(:bank_account, :date, :description, :reference, :money_in, :money_out)
-  end
+  # def transaction_params
+  #   params.require(:transaction).permit(:bank_account, :date, :description, :reference, :money_in, :money_out)
+  # end
 end
