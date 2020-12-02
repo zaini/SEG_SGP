@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_27_063306) do
+ActiveRecord::Schema.define(version: 2020_12_01_154849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,24 @@ ActiveRecord::Schema.define(version: 2020_11_27_063306) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.string "account_name"
+    t.integer "account_number"
+    t.string "sort_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.datetime "date"
+    t.text "description"
+    t.string "reference"
+    t.decimal "money_in"
+    t.decimal "money_out"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
