@@ -1,6 +1,6 @@
 class BankAccountsController < ApplicationController
   def index
-    @bank_account = BankAccount.order(:id)
+    @bank_accounts = BankAccount.where(user: current_user)
   end
 
   def show
@@ -12,12 +12,15 @@ class BankAccountsController < ApplicationController
   end
 
   def create
-    # @transaction = Transaction.new(transaction_params)
-    # if @transaction.valid? && @transaction.save
-    #   redirect_to(transactions_path)
-    # else
-    #   render('new')
-    # end
+    @bankuser = bankUser
+    @bank_account = BankAccount.new(bank_account_params)
+    @bank_account.user = @bankuser
+
+    if @bank_account.valid? && @bank_account.save
+      redirect_to(bank_accounts_path)
+    else
+      render('new')
+    end
   end
 
   def edit
@@ -33,7 +36,7 @@ class BankAccountsController < ApplicationController
   end
 
   private
-  # def transaction_params
-  #   params.require(:transaction).permit(:bank_account, :date, :description, :reference, :money_in, :money_out)
-  # end
+  def bank_account_params
+    params.require(:bank_account).permit(:account_name, :account_number, :sort_code)
+  end
 end

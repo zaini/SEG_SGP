@@ -12,12 +12,15 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    # @transaction = Transaction.new(transaction_params)
-    # if @transaction.valid? && @transaction.save
-    #   redirect_to(transactions_path)
-    # else
-    #   render('new')
-    # end
+    #need to validate the bank account
+    #to see whether bank account exists or not.
+    @transaction = Transaction.new(transaction_params)
+
+    if @transaction.valid? && @transaction.save
+      redirect_to(transactions_path)
+    else
+      render('new')
+    end
   end
 
   def edit
