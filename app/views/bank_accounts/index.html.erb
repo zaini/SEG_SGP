@@ -1,0 +1,23 @@
+<h1>Bank Account#index</h1>
+<h1>All your Bank Accounts!</h1>
+<p>View all your Bank Accounts and make modifications to them by clicking the buttons to the right.</p>
+<%= link_to("Create new bank account", new_bank_account_path()) %>
+<table class="table">
+    <tr>
+        <th>Account name</th>
+        <th>Account number</th>
+        <th>Sort Code</th>
+    </tr>
+    <% @bank_accounts.each do |bank_account| %>
+    <tr>
+        <td><%= bank_account.account_name %></td>
+        <td><%= bank_account.account_number %></td>
+        <td><%= bank_account.sort_code %></td>
+        <td>
+            <%= link_to('Show', bank_account_path(bank_account)) %>
+            <%= link_to('Edit', edit_bank_account_path(bank_account)) %>
+            <%= link_to('Delete', delete_bank_account_path(bank_account)) %>
+        </td>
+    </tr>
+    <% end %>
+</table>

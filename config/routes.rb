@@ -34,4 +34,17 @@ Rails.application.routes.draw do
       get :delete
     end
   end
+
+  resources :transactions do
+    member do
+      get :delete
+    end
+  end
+
+  resources :bank_accounts do
+    member do
+      get :delete
+    end
+  end
+  
 end

@@ -5,7 +5,7 @@ module SessionsHelper
         session[:isAdmin] = isAdmin
     end
 
-    def current_user()
+    def current_user
         if session[:user_id]
             if session[:isAdmin]
                 Admin.find(session[:user_id])
@@ -14,6 +14,13 @@ module SessionsHelper
             end
         end
     end
+
+    def bankUser
+        if session[:user_id]
+            User.find(session[:user_id])
+        end
+    end
+
 
     def logged_in?
         !current_user.nil?
