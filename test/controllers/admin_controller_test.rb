@@ -56,6 +56,11 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     assert !admin.save, "Saved admin with invalid but not empty email"
   end
 
+  test "should not create admin with different emails" do
+    admin = Admin.new(username: "admin", email: "admin@email.com", email_confirmation: "admin123@email.com", password: "admin123", password_confirmation: "admin123")
+    assert !admin.save, "Saved admin with different emails"
+  end
+
   test "should not create admin with short password" do
     admin = Admin.new(username: "admin", email: "admin@email.com", email_confirmation: "admin@email.com", password: "1", password_confirmation: "1")
     assert !admin.save, "Saved admin with short password"
@@ -64,6 +69,11 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   test "should not create admin with empty password" do
     admin = Admin.new(username: "admin", email: "admin@email.com", email_confirmation: "admin@email.com", password: "", password_confirmation: "")
     assert !admin.save, "Saved admin with empty password"
+  end
+  
+  test "should not create admin with different passwords" do
+    admin = Admin.new(username: "admin", email: "admin@email.com", email_confirmation: "admin@email.com", password: "admin123", password_confirmation: "admin312")
+    assert !admin.save, "Saved admin with different password"
   end
 
 end
