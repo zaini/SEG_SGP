@@ -1,6 +1,10 @@
 <h1>Bank Account#index</h1>
 <h1>All your Bank Accounts!</h1>
 <p>View all your Bank Accounts and make modifications to them by clicking the buttons to the right.</p>
+<br></br>
+
+<p>Now you can create account and create new transactions for the existing accounts</p>
+
 <%= link_to("Create new bank account", new_bank_account_path()) %>
 <table class="table">
     <tr>
@@ -17,7 +21,9 @@
             <%= link_to('Show', bank_account_path(bank_account)) %>
             <%= link_to('Edit', edit_bank_account_path(bank_account)) %>
             <%= link_to('Delete', delete_bank_account_path(bank_account)) %>
+            <%=link_to 'Create transactions', new_bank_account_transaction_path(bank_account)%> 
         </td>
     </tr>
     <% end %>
 </table>
+
