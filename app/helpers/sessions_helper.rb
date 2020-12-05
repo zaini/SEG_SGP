@@ -15,13 +15,6 @@ module SessionsHelper
         end
     end
 
-    def bankUser
-        if session[:user_id]
-            User.find(session[:user_id])
-        end
-    end
-
-
     def logged_in?
         !current_user.nil?
     end
