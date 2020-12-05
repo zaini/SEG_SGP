@@ -14,11 +14,19 @@ To begin running the application, you can just run ```rails server``` from the c
 
 Make sure your PostgreSQL server is running and you have a user called ```kingsbankingapp```. You can create such a user with this command: ```sudo -u postgres createuser kingsbankingapp -s```
 
-TODO: need instructions on migrating the databases so everyone can work on the same version
+You should be able to run the migrations by simply running ```rails db:migrate```, however if you have conflicts when attempting this, consider running ```rails db:reset``` which will **delete your current database** entirely and creating from new and also run the new migrations.
 
 # Testing
 
-TODO: add instructions on how to write and run tests
+```test``` folder can be found in the root of the project directory and contains all the files needed to conducting testing. Most testing will revolve arround the controllers and models which can be easily accessed from there. I suggest you look at the existing tests and follow from those, but also consider going through these guides:
+
+* https://guides.rubyonrails.org/v3.2/testing.html
+* https://youtu.be/jQvB0QWe5Bs
+* https://guides.rubyonrails.org/testing.html
+
+To run your tests you'll need to load the test database by running ```rake db:test:load```
+
+You can then run all your tests like this: ```ruby -Itest test/unit/post_test.rb``` or run a specific test method like this: ```ruby -Itest test/unit/post_test.rb -n test_the_truth```
 
 # Deployment
 
