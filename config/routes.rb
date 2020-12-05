@@ -35,16 +35,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :transactions do
+  resources :bank_accounts do
     member do
       get :delete
     end
   end
 
   resources :bank_accounts do
-    member do
-      get :delete
-    end
+    resources :transactions
   end
   
 end

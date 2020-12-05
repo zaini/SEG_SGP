@@ -1,6 +1,7 @@
 class BankAccountsController < ApplicationController
   def index
-    @bank_accounts = BankAccount.where(user: current_user)
+    @users = User.where(admin: current_user)
+    @bank_accounts = BankAccount.where(user: @users)
   end
 
   def show
@@ -8,13 +9,13 @@ class BankAccountsController < ApplicationController
   end
 
   def new
+    @users = User.where(admin: current_user)
     @bank_account = BankAccount.new
   end
 
   def create
-    @bankuser = bankUser
-    @bank_account = BankAccount.new(bank_account_params)
-    @bank_account.user = @bankuser
+    @bank_account = BankAccount.new(account_name: params[:bank_account][:account_name], account_number: params[:bank_account][:account_number], sort_code: params[:bank_account][:sort_code])
+    @bank_account.user = User.find(params[:bank_account][:user_id])
 
     if @bank_account.valid? && @bank_account.save
       redirect_to(bank_accounts_path)
@@ -33,10 +34,5 @@ class BankAccountsController < ApplicationController
   end
 
   def destroy
-  end
-
-  private
-  def bank_account_params
-    params.require(:bank_account).permit(:account_name, :account_number, :sort_code)
   end
 end

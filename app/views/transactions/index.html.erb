@@ -1,6 +1,6 @@
 <h1>View all your Transactions</h1>
 <p>View all your Transactions and make modifications to them by clicking the buttons to the right.</p>
-<%= link_to("Create new transaction", new_transaction_path()) %>
+<%= link_to("Create new transaction", new_bank_account_transaction_path(@bank_account)) %>
 <table class="table">
     <tr>
         <th>Bank Account ID</th>
@@ -12,15 +12,16 @@
     </tr>
     <% @transactions.each do |transaction| %>
     <tr>
+        <td><%= transaction.bank_account.id %></td>
         <td><%= transaction.date %></td>
         <td><%= transaction.description %></td>
         <td><%= transaction.reference %></td>
         <td><%= transaction.money_in %></td>
         <td><%= transaction.money_out %></td>
         <td>
-            <%= link_to('Show', transaction_path(transaction)) %>
-            <%= link_to('Edit', edit_transaction_path(transaction)) %>
-            <%= link_to('Delete', delete_transaction_path(transaction)) %>
+            <%= link_to 'ShowBankAccount', [@bank_account] %>
+            <%= link_to('Edit', edit_bank_account_transaction_path(@bank_account,transaction)) %>
+            <%= link_to 'Destroy', [@bank_account,transaction],method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
     </tr>
     <% end %>

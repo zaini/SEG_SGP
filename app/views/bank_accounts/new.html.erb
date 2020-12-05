@@ -1,9 +1,8 @@
 <h1>Create a new Bank Account for a user</h1>
-
 <%= link_to("View all bank accounts", bank_accounts_path()) %>
 <%= form_for(@bank_account, :url => bank_accounts_path, :method => 'post') do |f| %>
+  <p>Which user is this account for?</p>
+  <%= f.collection_select(:user_id, @users, :id, :first_name, {prompt: "Please select user"}) %>
   <%= render(partial: 'bank_accountform', locals: {f: f}) %>
   <%= f.submit("Create Bank Account") %>
 <% end %>
-
-
