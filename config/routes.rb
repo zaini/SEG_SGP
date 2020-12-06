@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   # These two require session to be validated
   get 'account', to: 'pages#account'
+  get 'account/:id', to: 'bank_accounts#show'
   get 'admin_panel', to: 'pages#admin_panel'
 
   post 'login', to: 'sessions#create_user'

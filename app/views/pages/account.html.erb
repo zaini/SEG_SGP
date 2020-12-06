@@ -1,8 +1,9 @@
+<% @user = current_user %>
+
 <!DOCTYPE html>
 <html lang="en">
-  <!-- All the things for Bootstrap CDN -->
   <head>
-    <title>Bootstrap Example</title>
+    <title>Your KB Account</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -10,135 +11,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
-</br>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2> Hello there, <%= current_user[:first_name] %>!</h2>
-      <h5 class="text-muted"> Welcome back to King's Banking&trade;, the King of Online Banking.</h5>
+  <body>
+    <!-- Welcome text to the account with your name and maybe some options to other pages -->
+    
+    <div>
+      <h1>Welcome <%= @user[:first_name] + " " + @user[:middle_name] + " " + @user[:last_name] %></h1>
+      <h2>Last logged in: <%= (Time.now - rand(60 * 60 * 24 * 3)).strftime('%m/%d/%Y %I:%M:%S %p') %></h2>
     </div>
-    <div class="col-sm-8">
-      <br>
-      <button type="button" class="btn-lg btn-outline-primary">Change Currency</button>
+
+    <!-- side panel about messages / special offers to the left -->
+
+
+    <!-- list of your accounts, their current balance and some other information with buttons for view statements, make payment, make transaction and more actions -->
+    <div>
+      <% BankAccount.where(user: @user).each do |account| %>
+        Account Name: <%= account[:account_name] %>
+        <br/>
+        Account Number: <%= account[:account_number] %>
+        <br/>
+        Sort Code: <%= account[:sort_code] %>
+        <br/>
+        <%= link_to "View Account", account %>
+        <br/><br/>
+      <% end %>
     </div>
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>What are you up to?</h2>
-    </div>
-    <div class="col-sm-8">
-      <div class="row">
-        <button type="button" class="btn-lg btn-outline-dark">New Payment</button>
-        -<button type="button" class="btn-lg btn-outline-secondary">Function 1</button>
-        -<button type="button" class="btn-lg btn-outline-dark">Function 2</button>
-        -<button type="button" class="btn-lg btn-outline-secondary">Contact Us</button>
-      </div>
-    </div>
-  </div>
-  <hr>
-</br>
-<div class="row">
-  <div class="col">
-    <div class="card">
-      <div class="card-body"><center>
-          <h2><b>Account Balance: $696969620.00</b></h2>
-        </center></div>
-    </div>
-  </div>
-</div>
-</br>
-<hr>
-<div class="row">
-  <div class="col-sm-4">
-  </br>
-  <h3> Last 5 Debits:</h3>
-  <h5 class="text-muted">- A small summary of your last 5 outward transactions.</h5>
-</div>
-<div class="col-sm-8">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Merchant</th>
-        <th>Amount</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Adidas//Covent G.</td>
-        <td>-1993.88</td>
-        <td>You can change this table section to match database.</td>
-      </tr>
-      <tr>
-        <td>Spotify_LLC.UK</td>
-        <td>-10.99</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-      <tr>
-        <td>TO: Ali Z.</td>
-        <td>-1223456</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-      <tr>
-        <td>Haidilao</td>
-        <td>-bruh</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-      <tr>
-        <td>STOCK@ TESLA NASDAQ: TSLA</td>
-        <td>-69420</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-sm-4">
-  </br>
-  <h3> Last 5 Credits:</h3>
-  <h5 class="text-muted">- A small summary of your last 5 inward transactions.</h5>
-</div>
-<div class="col-sm-8">
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Merchant</th>
-        <th>Amount</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>FROM: YOLO</td>
-        <td>+1993.88</td>
-        <td>You can change this table section to match database.</td>
-      </tr>
-      <tr>
-        <td>Starbucks-Inc.</td>
-        <td>+222.5</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-      <tr>
-        <td>FROM: Ali Z.</td>
-        <td>+1223456</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-      <tr>
-        <td>LIGMA</td>
-        <td>+foo</td>
-        <td>The table column size changes dynamically and I have no idea how to disable it.</td>
-      </tr>
-      <tr>
-        <td>JOE</td>
-        <td>+bar</td>
-        <td>20:00:20 - 14 Nov</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-</div>
+  
+  </body>
 </html>
