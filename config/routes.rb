@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get 'admin_panel/users', to: 'users#index'
 
+  get 'payment/:id', to: 'bank_accounts#payment'
+
   resources :users do
     member do
       get :delete

@@ -35,4 +35,8 @@ class BankAccountsController < ApplicationController
 
   def destroy
   end
+
+  def payment
+    @bank_account = BankAccount.find(params[:id])
+  end
 end

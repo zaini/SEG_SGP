@@ -1,0 +1,24 @@
+<% transactions = Transaction.where(bank_account: @bank_account) %>
+<% money_in = transactions.calculate(:sum, :money_in) %>
+<% money_out = transactions.calculate(:sum, :money_out) %>
+
+<h1>Make a payment from <%= @bank_account[:account_name] %></h1>
+<h2>Account number: <%= @bank_account[:account_number] %> | Sort code: <%= @bank_account[:sort_code] %></h2>
+<h3>Balance: <%= number_to_currency((money_in - money_out), :unit => '£') %></h3>
+
+<%= form_with(model: @transaction, local: true) do |f| %>
+<%= error_messages_for(f.object) %>
+<p>This payment will be from the following account: <%= @bank_account[:account_name] %></p>
+<p>To (account number)</p>
+<%= f.text_field(:description) %>
+<p>To (sort code)</p>
+<%= f.text_field(:description) %>
+<p>Amount</p>
+<%= f.text_field(:reference) %>
+<p>Description / Purpose</p>
+<%= f.text_field(:money_in) %>
+<p>Reference</p>
+<%= f.text_field(:money_out) %>
+<br><br>
+<%= f.submit("Send payment", data: { confirm: 'Are you sure?' }) %>
+<% end %>
