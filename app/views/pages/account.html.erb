@@ -16,7 +16,7 @@
       <!-- Welcome text to the account with your name and maybe some options to other pages -->
       <div>
         <h1>Welcome <%= @user[:first_name] + " " + @user[:last_name] %></h1>
-        <h2>Last logged in: <%= (Time.now - rand(60 * 60 * 24 * 3)).strftime('%m/%d/%Y %I:%M:%S %p') %></h2>
+        <h2>Last logged in: <%= @user[:last_logged_in] %></h2>
       </div>
 
       <!-- side panel about messages / special offers to the left -->
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <!-- list of your accounts, their current balance and some other information with buttons for view statements, make payment, make transaction and more actions -->
+      <!-- list of your accounts, their current balance and some other information with buttons for view statements, make payment, make transfer and more actions -->
       <div class="container">
         <% BankAccount.where(user: @user).each do |account| %>
           <% transactions = Transaction.where(bank_account: account) %>
@@ -61,10 +61,10 @@
             <div class="card-body">
               <h5 class="card-title"><%= account[:account_name] %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= account[:account_number] %> | <%= account[:sort_code] %></h6>
-              <p class="card-text">Current balance: <%= number_to_currency((money_in - money_out), :unit => '£') %> | Interest rate: 1.5%</p>
-              <%= link_to "View Statement", account %> |
-              <%= link_to "Make Transactions", account %> |
-              <%= link_to "Make Payments", account %>
+              <p class="card-text">Current balance: <%= number_to_currency((money_in - money_out), :unit => '£') %> | Interest rate: <%= account[:interest_rate] %>%</p>
+              <%= link_to "View Statement", statement_bank_account_path(account) %> |
+              <%= link_to "Make Transfer", transfer_bank_account_path(account) %> |
+              <%= link_to "Make Payments", payment_bank_account_path(account) %>
             </div>
           </div>
           <br/>

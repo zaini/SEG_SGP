@@ -39,6 +39,9 @@ Rails.application.routes.draw do
   resources :bank_accounts do
     member do
       get :delete
+      get :statement
+      get :transfer
+      get :payment
     end
   end
 
