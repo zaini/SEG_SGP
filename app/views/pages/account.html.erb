@@ -16,7 +16,7 @@
       <!-- Welcome text to the account with your name and maybe some options to other pages -->
       <div>
         <h1>Welcome <%= @user[:first_name] + " " + @user[:last_name] %></h1>
-        <h2>Last logged in: <%= (Time.now - rand(60 * 60 * 24 * 3)).strftime('%m/%d/%Y %I:%M:%S %p') %></h2>
+        <h2>Last logged in: <%= @user[:last_logged_in] %></h2>
       </div>
 
       <!-- side panel about messages / special offers to the left -->

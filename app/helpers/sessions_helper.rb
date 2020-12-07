@@ -3,6 +3,10 @@ module SessionsHelper
         logout
         session[:user_id] = user.id
         session[:isAdmin] = isAdmin
+        if !is_admin?
+            user = User.find(session[:user_id])
+            user.update(last_logged_in: Time.now, email_confirmation: user.email)
+        end
     end
 
     def current_user
