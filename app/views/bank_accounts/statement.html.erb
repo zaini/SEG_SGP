@@ -4,7 +4,7 @@
 
 <h1>Statement for <%= @bank_account[:account_name] %></h1>
 <h2>Account number: <%= @bank_account[:account_number] %> | Sort code: <%= @bank_account[:sort_code] %></h2>
-<h3>Balance: <%= number_to_currency((money_in - money_out), :unit => '£') %> | Interest rate: 1.5%</h3>
+<h3>Balance: <%= number_to_currency((money_in - money_out), :unit => '£') %> | Interest rate: <%= @bank_account[:interest_rate] %>%</h3>
 
 <%= link_to("Return to view all accounts", '/account') %>
 

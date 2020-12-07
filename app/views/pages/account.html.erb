@@ -61,7 +61,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= account[:account_name] %></h5>
               <h6 class="card-subtitle mb-2 text-muted"><%= account[:account_number] %> | <%= account[:sort_code] %></h6>
-              <p class="card-text">Current balance: <%= number_to_currency((money_in - money_out), :unit => '£') %> | Interest rate: 1.5%</p>
+              <p class="card-text">Current balance: <%= number_to_currency((money_in - money_out), :unit => '£') %> | Interest rate: <%= account[:interest_rate] %>%</p>
               <%= link_to "View Statement", statement_bank_account_path(account) %> |
               <%= link_to "Make Transfer", transfer_bank_account_path(account) %> |
               <%= link_to "Make Payments", payment_bank_account_path(account) %>
