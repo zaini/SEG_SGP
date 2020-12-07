@@ -4,6 +4,6 @@
 <%= link_to 'View all transactions', bank_account_transactions_path(@bank_account) %>
 <%= form_with(model: [@bank_account,@transaction], local: true) do |f| %>
 <%= render(partial: 'transactionform', locals: {f: f}) %>
-  <%= f.submit("Create transaction") %>
+<br></br>
+<%= f.submit("Create transaction") %>
 <% end %>
-

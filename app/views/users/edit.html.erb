@@ -1,17 +1,8 @@
 <h1>Edit your user</h1>
 <p>You can edit any of your users details here, but they must still be valid.</p>
 <%= link_to("View all users", users_path()) %>
-<%= link_to('Edit this user', edit_user_path(@user)) %>
-<%= form_for(@user) do |f| %>
-  <%= f.submit("Update User") %>
-  <%= render(partial: 'userform', locals: {f: f}) %>
-<% end %>
 
-<% @bank_accounts = @user.bank_accounts %>
-<% @bank_accounts.each do |account| %>
-  <p>@@@@@@@@@@@@@@</p>
-  <%= form_for(account) do |f| %>
-    <%= f.submit("Update Account") %>
-    <%= render(partial: './bank_accounts/bank_accountform', locals: {f: f}) %>
-  <% end %>
+<%= form_for(@user) do |f| %>
+  <%= render(partial: 'userform', locals: {f: f}) %>
+  <%= f.submit("Update User") %>
 <% end %>
