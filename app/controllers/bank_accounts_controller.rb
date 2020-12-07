@@ -14,7 +14,7 @@ class BankAccountsController < ApplicationController
   end
 
   def create
-    @bank_account = BankAccount.new(account_name: params[:bank_account][:account_name], account_number: params[:bank_account][:account_number], sort_code: params[:bank_account][:sort_code])
+    @bank_account = BankAccount.new(account_name: params[:bank_account][:account_name], account_number: params[:bank_account][:account_number], sort_code: params[:bank_account][:sort_code], interest_rate: params[:bank_account][:interest_rate])
     @bank_account.user = User.find(params[:bank_account][:user_id])
 
     if @bank_account.valid? && @bank_account.save

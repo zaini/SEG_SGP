@@ -5,5 +5,7 @@
 <%= f.text_field(:account_number) %>
 <p>Sort Code</p>
 <%= f.text_field(:sort_code) %>
+<p>Interest rate</p>
+<%= f.number_field(:interest_rate, step: :any) %>
 <%# <p>How many random transaction do you want to add to this account?</p> %>
 <%# <%= f.number_field(:numoftransactions) %>
