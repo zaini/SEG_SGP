@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_154849) do
+ActiveRecord::Schema.define(version: 2020_12_07_203256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_154849) do
     t.string "sort_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "interest_rate"
     t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_12_01_154849) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "last_logged_in"
     t.index ["admin_id"], name: "index_users_on_admin_id"
   end
 
