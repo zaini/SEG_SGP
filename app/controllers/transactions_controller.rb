@@ -2,7 +2,6 @@ class TransactionsController < ApplicationController
   before_action :get_account
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   
-
   def index
     @transactions = @bank_account.transactions
   end
@@ -31,7 +30,7 @@ class TransactionsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @transaction.update(post_params)
+      if @transaction.update(transaction_params)
         format.html { redirect_to bank_account_transactions_path(@bank_account), notice: 'Transaction was successfully updated.' }
       else
         format.html { render :edit }

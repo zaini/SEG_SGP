@@ -2,6 +2,7 @@
 <p>Create a new admin here</p>
 <%# <%= link_to("View all admins", admins_path()) %>
 <%= form_for(@admin, :url => admins_path, :method => 'post') do |f| %>
-  <%= render(partial: 'adminform', locals: {f: f}) %>
-  <%= f.submit("Create admin") %>
+<%= render(partial: 'adminform', locals: {f: f}) %>
+<br></br>
+<%= f.submit("Create admin") %>
 <% end %>

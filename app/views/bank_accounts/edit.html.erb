@@ -1,2 +1,6 @@
 <h1>Bank Account#edit</h1>
-<p>Find me in app/views/transactions/edit.html.erb</p>
+
+<%= form_for(@bank_account) do |f| %>
+  <%= render(partial: 'bank_accountform', locals: {f: f}) %>
+  <%= f.submit("Update Bank Account") %>
+<% end %>
