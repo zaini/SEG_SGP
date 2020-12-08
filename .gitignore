@@ -37,3 +37,5 @@ yarn-debug.log*
 
 # Ignore
 *.DS_Store
+.vscode/
+settings.json
