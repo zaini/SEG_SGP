@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       get :statement
       get :transfer
       get :payment
+      post :transfer_money
     end
   end
 
