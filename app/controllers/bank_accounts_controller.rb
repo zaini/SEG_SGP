@@ -76,6 +76,25 @@ class BankAccountsController < ApplicationController
   def payment
     @bank_account = BankAccount.find(params[:id])
   end
+
+  def send_payment
+    @from_bank_account = BankAccount.find(params[:id])
+    @to_account_number = params[:account_number]
+    @to_sort_code = params[:sort_code]
+    @description = params[:description]
+    @reference = params[:reference]
+    @amount = params[:amount]
+    @time = Time.now
+
+    @out = Transaction.new(bank_account: @from_bank_account, date: @time, description: @description, reference: @reference, money_in: 0, money_out: @amount)
+
+    if @out.valid? && @out.save
+      # render('/account')
+      redirect_to statement_bank_account_path(@from_bank_account)
+    else
+      redirect_to transfer_bank_account_path(@from_bank_account)
+    end
+  end
   
   private
   # Use callbacks to share common setup or constraints between actions.
