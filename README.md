@@ -1,6 +1,20 @@
 # King's Banking App
 
-## A fake banking service to faciliate scam-baiting by Team Topi
+## A fake banking service to faciliate scam-baiting
+
+### By Team Topi: Ali Zaini, Jian Tey, Bowen Yang, Quan Zhou (and Siyuan Zhang)
+
+Application has been deployed on Heroku and can be found [here]().
+
+To login as an admin, visit /admin/login and login with username ```admin``` and password ```admin```.
+
+This admin has two users. You can login as one of the those users by logging out of the admin account and clicking login and using email ```john.smith@email.com``` and password ```password123```.
+
+We are declaring that we have used the [LinkedIn Learning course](https://www.linkedin.com/learning/ruby-on-rails-6-essential-training) and 5CCS2SEG lecture material to support us as well as general learning from other online resources.
+
+We have also submitted all our source code, a specification of the code, a report and a PDF document containing the ER diagram for our final database design.
+
+This README contains other userful information about our development process.
 
 # Installation
 
