@@ -8,19 +8,19 @@
 
 <%= link_to("Return to view all accounts", '/account') %>
 
-<%= form_with(model: @transaction, local: true) do |f| %>
-<%= error_messages_for(f.object) %>
-<p>This payment will be from the following account: <%= @bank_account[:account_name] %></p>
-<p>To (account number)</p>
-<%= f.text_field(:description) %>
-<p>To (sort code)</p>
-<%= f.text_field(:description) %>
-<p>Amount</p>
-<%= f.text_field(:reference) %>
-<p>Description / Purpose</p>
-<%= f.text_field(:money_in) %>
-<p>Reference</p>
-<%= f.text_field(:money_out) %>
-<br><br>
-<%= f.submit("Send payment", data: { confirm: 'Are you sure?' }) %>
+<%= form_with(model: @transaction, url: 'send_payment', local: true) do |f| %>
+    <%= error_messages_for(f.object) %>
+    <p>This payment will be from the following account: <%= @bank_account[:account_name] %></p>
+    <p>To (account number)</p>
+    <%= f.text_field(:account_number) %>
+    <p>To (sort code)</p>
+    <%= f.text_field(:sort_code) %>
+    <p>Amount</p>
+    <%= f.text_field(:amount) %>
+    <p>Description / Purpose</p>
+    <%= f.text_field(:description) %>
+    <p>Reference</p>
+    <%= f.text_field(:reference) %>
+    <br><br>
+    <%= f.submit("Send payment", data: { confirm: 'Are you sure?' }) %>
 <% end %>

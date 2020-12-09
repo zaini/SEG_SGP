@@ -8,13 +8,13 @@
 
 <%= link_to("Return to view all accounts", '/account') %>
 
-<%= form_with(model: @transaction, local: true) do |f| %>
-<%= error_messages_for(f.object) %>
-<p>This transfer will be from the following account: <%= @bank_account[:account_name] %></p>
-<p>To</p>
-<%= f.text_field(:description) %>
-<p>Amount</p>
-<%= f.text_field(:reference) %>
-<br><br>
-<%= f.submit("Transfer money", data: { confirm: 'Are you sure?' }) %>
+<%= form_with(model: @transaction, url: 'transfer_money' ,local: true) do |f| %>
+    <%= error_messages_for(f.object) %>
+    <p>This transfer will be from the following account: <%= @bank_account[:account_name] %></p>
+    <p>To</p>
+    <%= f.collection_select(:bank_account_id, @user_bank_accounts, :id, :account_name, {prompt: "Please select bank account"}) %>
+    <p>Amount</p>
+    <%= f.text_field(:amount) %>
+    <br><br>
+    <%= f.submit("Transfer money", data: { confirm: 'Are you sure?' }) %>
 <% end %>

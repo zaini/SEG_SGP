@@ -50,11 +50,50 @@ class BankAccountsController < ApplicationController
   end
 
   def transfer
+    @user_bank_accounts = BankAccount.where(user: current_user)
     @bank_account = BankAccount.find(params[:id])
+  end
+
+  def transfer_money
+    @from_bank_account = BankAccount.find(params[:id])
+    @to_bank_account = BankAccount.find(params[:bank_account_id])
+    @description = "TRANSFER FROM " + [current_user[:first_name], current_user[:last_name], @from_bank_account[:account_name]].map(&:to_s).join(', ')
+    @reference = "TRANSFER FROM " + [current_user[:first_name], current_user[:last_name], @from_bank_account[:account_name]].map(&:to_s).join(', ')
+    @amount = params[:amount]
+    @time = Time.now
+
+    @out = Transaction.new(bank_account: @from_bank_account, date: @time, description: @description, reference: @reference, money_in: 0, money_out: @amount)
+    @in = Transaction.new(bank_account: @to_bank_account, date: @time, description: @description, reference: @reference, money_in: @amount, money_out: 0)
+
+    if @out.valid? && @in.valid? && @out.save && @in.save
+      # render('/account')
+      redirect_to statement_bank_account_path(@from_bank_account)
+    else
+      redirect_to transfer_bank_account_path(@from_bank_account)
+    end
   end
 
   def payment
     @bank_account = BankAccount.find(params[:id])
+  end
+
+  def send_payment
+    @from_bank_account = BankAccount.find(params[:id])
+    @to_account_number = params[:account_number]
+    @to_sort_code = params[:sort_code]
+    @description = params[:description]
+    @reference = params[:reference]
+    @amount = params[:amount]
+    @time = Time.now
+
+    @out = Transaction.new(bank_account: @from_bank_account, date: @time, description: @description, reference: @reference, money_in: 0, money_out: @amount)
+
+    if @out.valid? && @out.save
+      # render('/account')
+      redirect_to statement_bank_account_path(@from_bank_account)
+    else
+      redirect_to transfer_bank_account_path(@from_bank_account)
+    end
   end
   
   private
