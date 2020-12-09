@@ -1,8 +1,10 @@
 # King's Banking App
 
-## A fake banking service to faciliate scam-baiting
-
 ### By Team Topi: Ali Zaini, Jian Tey, Bowen Yang, Quan Zhou (and Siyuan Zhang)
+### Important info before we start.
+We were assigned 5 members but 1 never showed up. (Zhang Siyuan). We were asked to include this in our readme so as it affects the marking.
+
+## A fake banking service to faciliate scam-baiting
 
 Application has been deployed on Heroku and can be found [here]().
 
