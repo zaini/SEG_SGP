@@ -50,5 +50,11 @@ Rails.application.routes.draw do
   resources :bank_accounts do
     resources :transactions
   end
+
+  resources :currencies do
+    member do
+      get :delete
+    end
+  end
   
 end
