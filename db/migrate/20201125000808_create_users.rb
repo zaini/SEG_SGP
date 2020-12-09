@@ -3,6 +3,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     # this will automatically have a primary key ID
     create_table :users do |t|
       t.belongs_to :admin
+      t.integer :currency_id
       t.string :first_name
       t.string :middle_name
       t.string :last_name

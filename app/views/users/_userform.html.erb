@@ -13,3 +13,5 @@
 <%= f.password_field(:password) %>
 <p>Confirm password</p>
 <%= f.password_field(:password_confirmation) %>
+<p>Currency</p>
+<%= f.collection_select(:currency_id, Currency.all, :id, :code) %>

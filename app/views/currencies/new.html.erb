@@ -1,0 +1,7 @@
+<h1>Create a new currency</h1>
+<%= link_to("View all currencies", currencies_path()) %>
+<%= form_for(@currency, :url => currencies_path, :method => 'post') do |f| %>
+<%= render(partial: 'currencyform', locals: {f: f}) %>
+<br></br>
+<%= f.submit("Create Currency") %>
+<% end %>

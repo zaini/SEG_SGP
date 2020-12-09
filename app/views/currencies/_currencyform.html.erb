@@ -1,0 +1,7 @@
+<%= error_messages_for(f.object) %>
+<p>Code</p>
+<%= f.text_field(:code) %>
+<p>Symbol</p>
+<%= f.text_field(:symbol) %>
+<p>Rate to GBP</p>
+<%= f.number_field(:rate_to_gbp, step: :any) %>
