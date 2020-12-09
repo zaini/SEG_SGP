@@ -1,10 +1,11 @@
+<% currency = Currency.find(current_user[:currency_id]) %>
 <% transactions = Transaction.where(bank_account: @bank_account) %>
 <% money_in = transactions.calculate(:sum, :money_in) %>
 <% money_out = transactions.calculate(:sum, :money_out) %>
 
 <h1>Make a payment from <%= @bank_account[:account_name] %></h1>
 <h2>Account number: <%= @bank_account[:account_number] %> | Sort code: <%= @bank_account[:sort_code] %></h2>
-<h3>Balance: <%= number_to_currency((money_in - money_out), :unit => '£') %></h3>
+<h3>Balance: <%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></h3>
 
 <%= link_to("Return to view all accounts", '/account') %>
 
