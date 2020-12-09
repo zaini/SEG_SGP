@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :email_confirmation, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :middle_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :currency_id)
     end
 
     def redirect_to_root_if_not_logged_in_as_admin
