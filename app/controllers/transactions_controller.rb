@@ -44,8 +44,7 @@ class TransactionsController < ApplicationController
       format.html { redirect_to bank_account_transactions_path(@bank_account), notice: 'Transaction was successfully destroyed.' }
     end
   end
-
-
+  
   private
   def transaction_params
     params.require(:transaction).permit(:date, :description, :reference, :money_in, :money_out)
