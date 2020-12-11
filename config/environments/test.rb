@@ -3,8 +3,13 @@
 # your test database is "scratch space" for the test suite and is wiped
 # and recreated between test runs. Don't rely on the data there!
 
+
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+
+  #Faker gem configuration
+Faker::Config.locale = 'en'
 
   config.cache_classes = false
   config.action_view.cache_template_loading = true
@@ -46,4 +51,5 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+  
 end
