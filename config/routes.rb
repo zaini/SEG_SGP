@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'extras#landing'
   
   get 'pages/error'
+
+  get 'randoms/random'
   
   get 'loans', to: 'extras#loan'
   get 'contact_us', to: 'extras#contact_us'

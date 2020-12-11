@@ -29,5 +29,28 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
+# en:
+#   faker:
+#     name:
+#       account_name: [Easy Saver, Monthly Saver, Classic, Standard Saver, King's Club Saver, Platinum Saver]
+#       income: [Salary, From Ali, From Bowen, From Jason, From Vincent, Interest, From King's College London, Refund]
+
 en:
-  hello: "Hello world"
+  faker:
+    name:
+       account_name: 
+        - Easy Saver
+        - Monthly Saver
+        - Classic
+        - Standard Saver
+
+       description:
+        - From Bowen
+        - From Ali
+        - From Jason
+        - From Vincent
+        - From King's College London
+        - Interest
+   
+
+      

@@ -41,4 +41,5 @@ class SessionsController < ApplicationController
     logout
     redirect_to root_path # when you logout, go to the home index page
   end
+
 end

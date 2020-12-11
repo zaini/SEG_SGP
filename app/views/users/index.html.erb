@@ -1,6 +1,7 @@
 <h1>All your users!</h1>
 <p>View all your users and make modifications to them by clicking the buttons to the right.</p>
-<%= link_to("Create new user", new_user_path()) %>
+<%= link_to("Create new user", new_user_path()) %> | 
+<%= link_to('Create Bank Account', new_bank_account_path()) %>
 <table class="table">
   <tr>
     <th>First Name</th>
@@ -18,7 +19,6 @@
       <td><%= user.email %></td>
       <td><%= user.password %></td>
       <td>
-        <%= link_to('Show', user_path(user)) %> |
         <%= link_to('Edit', edit_user_path(user)) %> |
         <%= link_to('Delete', delete_user_path(user)) %>
       </td>
