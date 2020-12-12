@@ -14,4 +14,4 @@
 <p>Confirm password</p>
 <%= f.password_field(:password_confirmation) %>
 <p>Currency</p>
-<%= f.collection_select(:currency_id, Currency.all, :id, :code) %>
+<%= f.collection_select :currency, Currency.select(:code).distinct, :code, :code, {:include_blank => "Please select a currency"} %>
