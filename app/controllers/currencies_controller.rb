@@ -23,7 +23,7 @@ class CurrenciesController < ApplicationController
   end
 
   def edit
-    @currency = Currencies.find(params[:id])
+    @currency = Currency.find(params[:id])
   end
 
   def update

@@ -1,5 +1,5 @@
 <% @user = current_user %>
-<% currency = Currency.find(current_user[:currency_id]) %>
+<% currency = Currency.find(current_user.currency.id) %>
 
 <!DOCTYPE html>
 <html lang="en">

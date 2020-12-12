@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_12_09_001115) do
   create_table "currencies", force: :cascade do |t|
     t.string "code"
     t.decimal "rate_to_gbp"
+    t.belongs_to :user
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "symbol"
