@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'admin_panel/users', to: 'users#index'
+  get 'admin', to: 'pages#admin'
 
   resources :users do
     member do
