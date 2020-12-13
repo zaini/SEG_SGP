@@ -46,4 +46,38 @@
       <%= yield %>
     </div>
   </body>
+  <!-- Footer based on: https://mdbootstrap.com/docs/jquery/navigation/footer/ -->
+  <hr class="mt-5"/>
+  <footer class="page-footer font-small blue pt-5 bg-light">
+    <div class="container-fluid text-center text-md-left">
+      <div class="row">
+        <div class="col-md-6 mt-md-0 mt-3">
+          <h5 class="text-uppercase">King's Banking</h5>
+          <p>King's Banking is authorised* by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority.</p>
+          <p>*: maybe in a hundred years</p>
+        </div>
+        <hr class="clearfix w-100 d-md-none pb-3">
+        <div class="col-md-3 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Links</h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="/contact_us">Contact Us</a>
+            </li>
+            <li>
+              <a href="/savings">Savings</a>
+            </li>
+            <li>
+              <a href="/loans">Loans</a>
+            </li>
+            <li>
+              <a href="/admin">Admin</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright
+      <a href="https://kingsbanking.herokuapp.com/"> kingsbanking.herokuapp.com</a>
+    </div>
+  </footer>
 </html>
