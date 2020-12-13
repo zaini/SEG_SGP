@@ -1,6 +1,8 @@
 <% @user = current_user %>
 <% currency = Currency.find(current_user.currency.id) %>
 
+<% @title=`King's Banking | #{@user[:first_name]} #{@user[:last_name]}` %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -1,5 +1,5 @@
-<h1>Bank Account#edit</h1>
-
+<% @title="Edit Bank Account" %>
+<h1>Edit Bank Account</h1>
 <%= form_for(@bank_account) do |f| %>
   <%= render(partial: 'bank_accountform', locals: {f: f}) %>
   <%= f.submit("Update Bank Account") %>

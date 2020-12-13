@@ -1,3 +1,4 @@
+<% @title="Create Bank Account" %>
 <h1>Create a new Bank Account for a user</h1>
 <%= link_to("View all bank accounts", bank_accounts_path()) %>
 <%= form_for(@bank_account, :url => bank_accounts_path, :method => 'post') do |f| %>
