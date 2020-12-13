@@ -7,67 +7,43 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <style>
+    .btn-danger:hover {
+      color: #FFF;
+      background: #BB2D3B;
+    }
+  </style>
   <!--- Display navigation bar and search engine --->
   <body>
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/"> King's Banking</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <% if !logged_in? %>
-                <%=link_to 'Log In', login_path %>
-              <% end %>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-                Navigation
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Account</a>
-                <a class="dropdown-item" href="#">Transaction History</a>
-                <a class="dropdown-item" href="#">Pay & Transfer</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/admin_panel">Administration</a>
-              </div>
-            </li>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                    Settings
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Language</a>
-                    <a class="dropdown-item" href="#">Currency</a>
-                  </div>
-                </li>
-              </div>
-            </ul>
-            <% if logged_in? %>
-              <% if is_admin? %>
-                <p>Logged in as admin.</p>
-              <% end %>
-              <%=link_to 'Log Out', logout_path, method: :delete %>
-            <% else %>
-              <%=link_to 'Don\'t have online banking? Sign up.', root_path %>
-            <% end %>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </nav>
+        <a class="navbar-brand" href="/">
+          <%= image_tag("logos/logo_h.png", width: "210", height: "60") %>
+        </a>
+        <div class="collapse navbar-collapse">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/">Bank</a>
+            <a class="nav-item nav-link" href="/loans">Loan</a>
+            <a class="nav-item nav-link" href="/savings">Savings & investing</a>
+            <a class="nav-item nav-link" href="/contact_us">Customer Support</a>
+          </div>
         </div>
-        <%= yield %>
-      </div>
-    </body>
-  </html>
+        <div class="navbar-nav" style="margin-right: 50px">
+          <a class="nav-item nav-link" href="/contact_us">Contact Us</a>
+          <% if logged_in? %>
+            <% if is_admin? %>
+              <a class="nav-item nav-link active font-weight-bold">Logged in as admin.</a>
+            <% end %>
+            <%=link_to 'Log Out', logout_path, method: :delete, class: "nav-item nav-link" %>
+          <% else %>
+            <%=link_to 'Login', login_path, class: "text-light btn btn-danger nav-item nav-link ml-3 mr-2" %>
+            <%=link_to 'Don\'t have online banking? Sign up.', root_path, class: "text-light btn btn-danger nav-item nav-link" %>
+          <% end %>
+        </div>
+      </nav>
+    </div>
+    <div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
