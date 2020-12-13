@@ -1,6 +1,8 @@
+<% @title="King's Banking | Admin Login" %>
+
 <div class="login-form-container clearfix">
   <%= image_tag("logos/logo1.png",width:"200") %>
-  <h5>Please log into ADMIN pannel</h5>
+  <h5>Admin Panel Login</h5>
   <br>
   <div class="login-form">
     <%= form_with(url: admin_login_path, scope: :session, local: true) do |f| %>

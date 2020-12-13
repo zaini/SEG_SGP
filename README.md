@@ -1,14 +1,14 @@
 # King's Banking App
 
 ### By Team Topi: Ali Zaini, Jian Tey, Bowen Yang, Quan Zhou (and Siyuan Zhang)
-### Important info before we start.
-We were assigned 5 members but 1 never showed up. (Zhang Siyuan). We were asked to include this in our readme so as it affects the marking.
+### Important Information.
+We were assigned 5 members but Zhang Siyuan never showed up. This limited the scope of our project but we believe we have still successfully implemented the vast majority of the functionality and hope that our peer review assessments will be taken into consideration when marking.
 
 ## A fake banking service to faciliate scam-baiting
 
-Application has been deployed on Heroku and can be found [here]().
+Application has been deployed on Heroku and can be found [here](https://kingsbanking.herokuapp.com/).
 
-To login as an admin, visit /admin/login and login with username ```admin``` and password ```admin```.
+To login as an admin, visit https://kingsbanking.herokuapp.com/admin/login and login with username ```admin``` and password ```admin```. All the admin features require you to be logged in as an admin and to then access the URL [directly](https://kingsbanking.herokuapp.com/admin) or from the footer, where it is hidden.
 
 This admin has two users. You can login as one of the those users by logging out of the admin account and clicking login and using email ```john.smith@email.com``` and password ```password123```.
 

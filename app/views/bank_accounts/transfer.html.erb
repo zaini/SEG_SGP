@@ -1,3 +1,5 @@
+<% @title="Make Bank Transfer" %>
+
 <% currency = Currency.find(current_user[:currency_id]) %>
 <% transactions = Transaction.where(bank_account: @bank_account) %>
 <% money_in = transactions.calculate(:sum, :money_in) %>

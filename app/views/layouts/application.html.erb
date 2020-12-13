@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kingsbankingapp</title>
+    <title><%= @title || "King's Banking" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -54,6 +54,9 @@
               </div>
             </ul>
             <% if logged_in? %>
+              <% if is_admin? %>
+                <p>Logged in as admin.</p>
+              <% end %>
               <%=link_to 'Log Out', logout_path, method: :delete %>
             <% else %>
               <%=link_to 'Don\'t have online banking? Sign up.', root_path %>
