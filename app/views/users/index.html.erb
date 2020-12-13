@@ -10,8 +10,6 @@
     <th>Middle Name</th>
     <th>Last Name</th>
     <th>Email</th>
-    <th>Currency</th>
-    <th>Posessed Bank Account</th>
     <th>Password</th>
     <th>Actions</th>
   </tr>
@@ -21,8 +19,6 @@
       <td><%= user.middle_name %></td>
       <td><%= user.last_name %></td>
       <td><%= user.email %></td>
-      <td><%= user.currency.code %></td>
-      <td><%= user.bank_accounts.count%></td>
       <td><%= user.password %></td>
       <td>
         <%= link_to('Edit', edit_user_path(user)) %> |

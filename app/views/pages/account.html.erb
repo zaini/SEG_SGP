@@ -1,5 +1,5 @@
 <% @user = current_user %>
-<% currency = Currency.find(current_user.currency.id) %>
+<% currency = Currency.find(current_user[:currency_id]) %>
 
 <% @title=`King's Banking | #{@user[:first_name]} #{@user[:last_name]}` %>
 

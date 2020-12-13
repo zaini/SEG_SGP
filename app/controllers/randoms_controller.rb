@@ -1,40 +1,28 @@
 class RandomsController < ApplicationController
-    before_action :setID
 
 def random
     require 'faker'
     I18n.reload!
-
 #Generate random Users
-21.times do
+20.times do
     first_name = Faker::Name.first_name  
     middle_name = Faker::Name.middle_name
     last_name = Faker::Name.last_name 
     email = Faker::Internet.unique.free_email
-    password = "password123"  #default password for all randomly generated users
+    password = Faker::Internet.password 
     id = current_user.id
-    User.create!(admin_id:id, first_name:first_name, middle_name:middle_name, last_name:last_name, email:email,email_confirmation:email,password:password)
-end
-
-
-#Generate currencies related to users
-while @id < User.ids.max do
-    @id += 1
-    Currency.create!(user_id:@id, code:"USD", symbol:"$", rate_to_gbp:1.3)
-    @id += 1
-    Currency.create!(user_id:@id, code:"GBP", symbol:"£", rate_to_gbp:1)
-    @id += 1
-    Currency.create!(user_id:@id, code:"CNY", symbol:"¥", rate_to_gbp:8.6)
+    User.create!(admin_id:id, first_name:first_name, middle_name:middle_name, last_name:last_name, email:email,email_confirmation:email,password_digest:password)
 end
 
 
 #Generate random Bank Accounts
-50.times do
+20.times do
     account_name = Faker::Name.account_name   
     account_number = Faker::Bank.account_number 
     sort_code = Faker::Number.number(digits: 6)
     id = rand(1..User.ids.max)
-    BankAccount.create!(user_id:id, account_name:account_name, account_number:account_number, sort_code:sort_code)      
+    BankAccount.create!(user_id:id, account_name:account_name, account_number:account_number, sort_code:sort_code)
+       
 end
 
 
@@ -62,9 +50,4 @@ end
 end
 
 end
-
-private 
-    def setID
-        @id = 0
-    end
 end
