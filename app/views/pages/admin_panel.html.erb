@@ -1,53 +1,50 @@
 <% @title="King's Banking | Admin Panel" %>
-
-<br></br>
- <div class="container">
-     <!-- Content here -->
-     <div class="jumbotron bg-secondary text-white">
-         <h2 class="display-4">Hello, Administrator <%= current_user[:username] %>.</h2>
-         <p class="lead">Start managing users, accounts and transaction histories from below.</p>
-     </div>
-  
-
+<br/>
+<div class="container">
+  <!-- Content here -->
+  <div class="jumbotron bg-secondary text-white">
+    <h2 class="display-4">Hello, Administrator <%= current_user[:username] %>.</h2>
+    <p class="lead">Start managing users, accounts and transaction histories from below.</p>
+  </div>
   <div class="row row-cols-1 row-cols-md-4 g-4">
-   <div class="col">
-     <div class="card h-100 text-dark bg-white">
-       <div class="card-body">
-         <h3 class="card-title"><%=link_to 'Generate Random Data', randoms_random_path %></h3>
-         <p class="card-text">Generate random users, bank accounts and corresponding transactions all in once.</p>
-       </div>
-       <%= image_tag("adminImages/random.jpg", class:"card-img-top") %>
-     </div>
-   </div>
-
-   <div class="col">
-     <div class="card h-100 text-dark bg-white">
-       <div class="card-body">
-         <h3 class="card-title"><%=link_to 'Manage User', signup_user_path %></h3>
-         <p class="card-text">Manually create / view / edit / delete bank users.</p>
-       </div>
-       <%= image_tag("adminImages/user.jpg", class:"card-img-top") %>
-     </div>
-   </div>
-   <div class="col">
-     <div class="card h-100 text-dark bg-white">
-       <div class="card-body">
-         <h3 class="card-title"><%=link_to 'Manage Bank Account & Transaction', new_bank_account_path %></h3>
-         <p class="card-text">Manually create / view / edit / delete bank accounts and corresponding transaction histories.</p>
-       </div>
-       <%= image_tag("adminImages/account.jpg", class:"card-img-top") %>
-     </div>
-   </div>
-   <div class="col">
-     <div class="card h-100 text-dark bg-white">
-       <div class="card-body">
-         <h3 class="card-title">Useful Links</h3>
-         <p class="card-text"><%=link_to 'View all users', users_path() %></p>
-         <p class="card-text"><%=link_to 'View all bank accounts and corresponding transactions', bank_accounts_path() %></p>
-       </div>
-       <%= image_tag("adminImages/link.jpg", class:"card-img-top") %>
-     </div>
-   </div>
- </div>
-
- </div> 
+    <div class="col">
+      <div class="card h-100 text-dark bg-white">
+        <div class="card-body">
+          <h3 class="card-title"><%=link_to 'Generate Random Data', randoms_random_path, :class => "btn btn-primary" %></h3>
+          <p class="card-text">Generate random users, bank accounts and corresponding transactions all in once.</p>
+        </div>
+        <%= image_tag("adminImages/random.jpg", class:"card-img-top") %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-dark bg-white">
+        <div class="card-body">
+          <h3 class="card-title"><%=link_to 'Manage Users', users_path %></h3>
+          <p class="card-text">Create / view / edit / delete bank users.</p>
+          <%=link_to 'Create a new user', signup_user_path, :class => "btn btn-primary" %>
+        </div>
+        <%= image_tag("adminImages/user.jpg", class:"card-img-top") %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100 text-dark bg-white">
+        <div class="card-body">
+          <h3 class="card-title"><%=link_to 'Manage Bank Accounts & Transactions', bank_accounts_path %></h3>
+          <p class="card-text">Manually create / view / edit / delete bank accounts and corresponding transaction histories.</p>
+          <%=link_to 'Create a new bank account', new_bank_account_path, :class => "btn btn-primary" %>
+      </div>
+      <%= image_tag("adminImages/account.jpg", class:"card-img-top") %>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100 text-dark bg-white">
+      <div class="card-body">
+        <h3 class="card-title">Useful Links</h3>
+        <p class="card-text"><%=link_to 'View all users', users_path() %></p>
+        <p class="card-text"><%=link_to 'View all bank accounts and corresponding transactions', bank_accounts_path() %></p>
+      </div>
+      <%= image_tag("adminImages/link.jpg", class:"card-img-top") %>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,24 +1,27 @@
 <% @title="View Currencies" %>
-
-<h1>All your currencies!</h1>
-<%= link_to("Create new currency", new_currency_path()) %>
-<table class="table">
-  <tr>
-    <th>Code</th>
-    <th>Symbol</th>
-    <th>Rate to GBP</th>
-    <th>Actions</th>
-  </tr>
-  <% @currencies.each do |currency| %>
+<div class="container mt-5">
+  <h1>All your currencies!</h1>
+  <%= link_to("Create new currency", new_currency_path()) %>
+  <br/>
+  <br/>
+  <table class="table">
     <tr>
-      <td><%= currency.code %></td>
-      <td><%= currency.symbol %></td>
-      <td><%= currency.rate_to_gbp %></td>
-      <td>
-        <%= link_to('Show', currency_path(currency)) %> |
-        <%= link_to('Edit', edit_currency_path(currency)) %> |
-        <%= link_to('Delete', delete_currency_path(currency)) %>
-      </td>
+      <th>Code</th>
+      <th>Symbol</th>
+      <th>Rate to GBP</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
-</table>
+    <% @currencies.each do |currency| %>
+      <tr>
+        <td><%= currency.code %></td>
+        <td><%= currency.symbol %></td>
+        <td><%= currency.rate_to_gbp %></td>
+        <td>
+          <%= link_to('Show', currency_path(currency)) %> |
+          <%= link_to('Edit', edit_currency_path(currency)) %> |
+          <%= link_to('Delete', delete_currency_path(currency)) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

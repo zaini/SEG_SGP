@@ -26,6 +26,9 @@
             <a class="nav-item nav-link" href="/loans">Loan</a>
             <a class="nav-item nav-link" href="/savings">Savings & investing</a>
             <a class="nav-item nav-link" href="/contact_us">Customer Support</a>
+            <% if logged_in? && is_admin? %>
+              <a class="nav-item nav-link active font-weight-bold text-primary" href="/admin">Click here to go to Admin Panel.</a>
+            <% end %>
           </div>
         </div>
         <div class="navbar-nav" style="margin-right: 50px">

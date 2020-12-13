@@ -1,10 +1,10 @@
 <% @title="Create New User" %>
-
-<h1>Create a new user</h1>
-<p>Create a new user here.</p>
-<%= link_to("View all users", users_path()) %>
-<%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
-<%= render(partial: 'userform', locals: {f: f}) %>
-<br></br>
-<%= f.submit("Create User") %>
-<% end %>
+<div class="login-form login-form-container clearfix">
+  <h1>Create a new user</h1>
+  <%= link_to("View all users", users_path()) %>
+  <%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
+    <%= render(partial: 'userform', locals: {f: f}) %>
+    <br>
+    <%= f.submit("Create User", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>
