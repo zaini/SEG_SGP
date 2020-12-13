@@ -54,6 +54,9 @@
               </div>
             </ul>
             <% if logged_in? %>
+              <% if is_admin? %>
+                <p>Logged in as admin.</p>
+              <% end %>
               <%=link_to 'Log Out', logout_path, method: :delete %>
             <% else %>
               <%=link_to 'Don\'t have online banking? Sign up.', root_path %>
