@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   post 'login', to: 'sessions#create_user'
   get 'login', to: 'sessions#new_user'
-  match 'signup', to: 'users#new', via: :get
+  match 'signup', to: 'pages#fakesignup', via: :get
+  match 'signup_user', to: 'users#new', via: :get
 
   post 'admin/login', to: 'sessions#create_admin'
   get 'admin/login', to: 'sessions#new_admin'

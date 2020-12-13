@@ -1,25 +1,22 @@
 <% @title="King's Banking | Admin Login" %>
-
 <div class="login-form-container clearfix">
-  <%= image_tag("logos/logo1.png",width:"200") %>
+  <div class="container">
+    <%= image_tag("logos/logo.png", width:"200") %>
+  </div>
   <h5>Admin Panel Login</h5>
   <br>
   <div class="login-form">
     <%= form_with(url: admin_login_path, scope: :session, local: true) do |f| %>
-    <dl class="form">
-      <dt><%= f.label :username, "Username:" %></dt>
-      <dd><%= f.text_field :username %></dd>
-    </dl>
-
-    <dl class="form">
-      <dt><%= f.label :password, "Password:" %></dt>
-      <dd><%= f.password_field :password %></dd>
-    </dl>
-
-    <p><%= f.submit "Log In", :class => "login-button btn btn-primary" %></p>
-
-    <%= link_to("Create admin account", admin_signup_path()) %>
-
+      <dl class="form">
+        <dt><%= f.label :username, "Username:" %></dt>
+        <dd><%= f.text_field :username %></dd>
+      </dl>
+      <dl class="form">
+        <dt><%= f.label :password, "Password:" %></dt>
+        <dd><%= f.password_field :password %></dd>
+      </dl>
+      <p><%= f.submit "Log In", :class => "login-button btn btn-primary" %></p>
+      <%= link_to("Create admin account", admin_signup_path()) %>
     <% end %>
   </div>
 </div>

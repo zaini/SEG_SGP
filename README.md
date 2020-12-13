@@ -12,7 +12,7 @@ To login as an admin, visit https://kingsbanking.herokuapp.com/admin/login and l
 
 This admin has two users. You can login as one of the those users by logging out of the admin account and clicking login and using email ```john.smith@email.com``` and password ```password123```.
 
-We are declaring that we have used the [LinkedIn Learning course](https://www.linkedin.com/learning/ruby-on-rails-6-essential-training) and 5CCS2SEG lecture material to support us as well as general learning from other online resources.
+We are declaring that we have used the [LinkedIn Learning course](https://www.linkedin.com/learning/ruby-on-rails-6-essential-training) and 5CCS2SEG lecture material to support us as well as general learning from other online resources. The footer was heavily inspired by [mdbootstrap](https://mdbootstrap.com/docs/jquery/navigation/footer/).
 
 We have also submitted all our source code, a specification of the code, a report and a PDF document containing the ER diagram for our final database design.
 
