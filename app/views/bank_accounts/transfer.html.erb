@@ -1,23 +1,25 @@
 <% @title="Make Bank Transfer" %>
-
 <% currency = Currency.find(current_user[:currency_id]) %>
 <% transactions = Transaction.where(bank_account: @bank_account) %>
 <% money_in = transactions.calculate(:sum, :money_in) %>
 <% money_out = transactions.calculate(:sum, :money_out) %>
-
 <h1>Transfer money from <%= @bank_account[:account_name] %> to another account</h1>
-<h2>Account number: <%= @bank_account[:account_number] %> | Sort code: <%= @bank_account[:sort_code] %></h2>
-<h3>Balance: <%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></h3>
-
-<%= link_to("Return to view all accounts", '/account') %>
-
-<%= form_with(model: @transaction, url: 'transfer_money' ,local: true) do |f| %>
+<div class="login-form login-form-container">
+  <h2>Account number: <%= @bank_account[:account_number] %></h2>
+  <h2>Sort code: <%= @bank_account[:sort_code] %></h2>
+  <h3>Balance: <%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></h3>
+  <%= link_to("Return to view all accounts", '/account') %>
+  <%= form_with(model: @transaction, url: 'transfer_money' ,local: true) do |f| %>
     <%= error_messages_for(f.object) %>
     <p>This transfer will be from the following account: <%= @bank_account[:account_name] %></p>
-    <p>To</p>
+    <dt>To</dt>
     <%= f.collection_select(:bank_account_id, @user_bank_accounts, :id, :account_name, {prompt: "Please select bank account"}) %>
-    <p>Amount</p>
+    <br/>
+    <br/>
+    <dt>Amount</dt>
     <%= f.text_field(:amount) %>
-    <br><br>
-    <%= f.submit("Transfer money", data: { confirm: 'Are you sure?' }) %>
-<% end %>
+    <br>
+    <br>
+    <%= f.submit("Transfer money", data: { confirm: 'Are you sure?' }, :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

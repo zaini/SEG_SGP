@@ -26,8 +26,12 @@
             <a class="nav-item nav-link" href="/loans">Loan</a>
             <a class="nav-item nav-link" href="/savings">Savings & investing</a>
             <a class="nav-item nav-link" href="/contact_us">Customer Support</a>
-            <% if logged_in? && is_admin? %>
-              <a class="nav-item nav-link active font-weight-bold text-primary" href="/admin">Click here to go to Admin Panel.</a>
+            <% if logged_in? %>
+              <% if is_admin? %>
+                <a class="nav-item nav-link active font-weight-bold text-primary" href="/admin">Click here to go to Admin Panel.</a>
+              <% else %>
+                <a class="nav-item nav-link active font-weight-bold text-danger" href="/account">Account Page</a>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -37,7 +41,7 @@
             <% if is_admin? %>
               <a class="nav-item nav-link active font-weight-bold">Logged in as admin.</a>
             <% end %>
-            <%=link_to 'Log Out', logout_path, method: :delete, class: "nav-item nav-link" %>
+            <%=link_to 'Log Out', logout_path, method: :delete, class: "nav-item nav-link text-danger" %>
           <% else %>
             <%=link_to 'Login', login_path, class: "text-light btn btn-danger nav-item nav-link ml-3 mr-2" %>
             <%=link_to 'Don\'t have online banking? Sign up.', signup_path, class: "text-light btn btn-danger nav-item nav-link" %>
