@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'pages/error'
 
   get 'randoms/random'
+
+  get 'offer', to: 'extras#offer'
   
   get 'loans', to: 'extras#loan'
   get 'contact_us', to: 'extras#contact_us'

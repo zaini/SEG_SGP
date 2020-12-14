@@ -10,4 +10,7 @@ class ExtrasController < ApplicationController
 
   def savings
   end
+
+  def offer
+  end
 end
