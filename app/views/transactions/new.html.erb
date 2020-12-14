@@ -1,11 +1,10 @@
 <% @title="Create Transaction" %>
-
-<h1>Create a new transaction for an account</h1>
-<p>Create a new transaction here. You can also generate a random transaction.</p>
-
-<%= link_to 'View all transactions', bank_account_transactions_path(@bank_account) %>
-<%= form_with(model: [@bank_account,@transaction], local: true) do |f| %>
-<%= render(partial: 'transactionform', locals: {f: f}) %>
-<br></br>
-<%= f.submit("Create transaction") %>
-<% end %>
+<div class="login-form login-form-container clearfix">
+  <h1>Create a new transaction for an account</h1>
+  <p>Create a new transaction here. You can also generate a random transaction.</p>
+  <%= link_to 'View all transactions', bank_account_transactions_path(@bank_account) %>
+  <%= form_with(model: [@bank_account,@transaction], local: true) do |f| %>
+    <%= render(partial: 'transactionform', locals: {f: f}) %>
+    <%= f.submit("Create transaction", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

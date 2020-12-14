@@ -1,11 +1,21 @@
 <%= error_messages_for(f.object) %>
-<p>Date</p>
-<%= f.text_field(:date) %>
-<p>Description</p>
-<%= f.text_field(:description) %>
-<p>Reference</p>
-<%= f.text_field(:reference) %>
-<p>Money In</p>
-<%= f.text_field(:money_in) %>
-<p>Money Out</p>
-<%= f.text_field(:money_out) %>
+<dl class="form">
+  <dt><%= f.label :date, "Date" %></dt>
+  <dd><%= f.text_field(:date) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :description, "Description" %></dt>
+  <dd><%= f.text_field(:description) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :reference, "Reference" %></dt>
+  <dd><%= f.text_field(:reference) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :money_in, "Money In" %></dt>
+  <dd><%= f.text_field(:money_in) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :money_out, "Money Out" %></dt>
+  <dd><%= f.text_field(:money_out) %></dd>
+</dl>

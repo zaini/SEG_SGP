@@ -1,11 +1,17 @@
 <%= error_messages_for(f.object) %>
-<p>Account name</p>
-<%= f.text_field(:account_name) %>
-<p>Account number</p>
-<%= f.text_field(:account_number) %>
-<p>Sort Code</p>
-<%= f.text_field(:sort_code) %>
-<p>Interest rate</p>
-<%= f.number_field(:interest_rate, step: :any) %>
-<%# <p>How many random transaction do you want to add to this account?</p> %>
-<%# <%= f.number_field(:numoftransactions) %>
+<dl class="form">
+  <dt><%= f.label :account_name, "Account Name" %></dt>
+  <dd><%= f.text_field(:account_name) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :account_number, "Account Number" %></dt>
+  <dd><%= f.text_field(:account_number) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :sort_code, "Sort Code" %></dt>
+  <dd><%= f.text_field(:sort_code) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :first_name, "Interest Rate" %></dt>
+  <dd><%= f.number_field(:interest_rate, step: :any) %></dd>
+</dl>

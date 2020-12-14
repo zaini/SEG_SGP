@@ -1,6 +1,9 @@
 <% @title="Edit Bank Account" %>
-<h1>Edit Bank Account</h1>
-<%= form_for(@bank_account) do |f| %>
-  <%= render(partial: 'bank_accountform', locals: {f: f}) %>
-  <%= f.submit("Update Bank Account") %>
-<% end %>
+<div class="login-form-container clearfix">
+  <h1>Edit Bank Account</h1>
+  <%= link_to("View all bank accounts", bank_accounts_path()) %>
+  <%= form_for(@bank_account) do |f| %>
+    <%= render(partial: 'bank_accountform', locals: {f: f}) %>
+    <%= f.submit("Update Bank Account", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

@@ -1,21 +1,23 @@
 <% @title="View Transactions" %>
-
-<h1>View all your Transactions for this account</h1>
-<p>View all your transactions and initiate actions to them by clicking the buttons to the right.</p>
-<%= link_to 'View all bank accounts', bank_accounts_path %> |
-<%= link_to 'Create new transaction', new_bank_account_transaction_path(@bank_account) %>
-<table class="table">
+<div class="container mt-5">
+  <h1>View all your Transactions for this account</h1>
+  <p>View all your transactions and initiate actions to them by clicking the buttons to the right.</p>
+  <%= link_to 'View all bank accounts', bank_accounts_path %> |
+  <%= link_to 'Create new transaction', new_bank_account_transaction_path(@bank_account) %>
+  <br/>
+  <br/>
+  <table class="table">
     <tr>
-        <th>Bank Account Number</th>
-        <th>Date</th>
-        <th>Description</th>
-        <th>Reference</th>
-        <th>Money In</th>
-        <th>Money Out</th>
-        <th>Actions</th>
+      <th>Bank Account Number</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Reference</th>
+      <th>Money In</th>
+      <th>Money Out</th>
+      <th>Actions</th>
     </tr>
     <% @transactions.each do |transaction| %>
-    <tr>
+      <tr>
         <td><%= transaction.bank_account.account_number %></td>
         <td><%= transaction.date %></td>
         <td><%= transaction.description %></td>
@@ -23,9 +25,10 @@
         <td><%= transaction.money_in %></td>
         <td><%= transaction.money_out %></td>
         <td>
-            <%= link_to 'Edit', edit_bank_account_transaction_path(@bank_account,transaction) %> |
-            <%= link_to 'Destroy', [@bank_account,transaction],method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Edit', edit_bank_account_transaction_path(@bank_account,transaction) %> |
+          <%= link_to 'Destroy', [@bank_account,transaction],method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
-    </tr>
+      </tr>
     <% end %>
-</table>
+  </table>
+</div>

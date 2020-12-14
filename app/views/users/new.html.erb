@@ -4,7 +4,6 @@
   <%= link_to("View all users", users_path()) %>
   <%= form_for(@user, :url => users_path, :method => 'post') do |f| %>
     <%= render(partial: 'userform', locals: {f: f}) %>
-    <br>
     <%= f.submit("Create User", :class => "login-button btn btn-primary") %>
   <% end %>
 </div>
