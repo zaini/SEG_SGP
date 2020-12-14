@@ -1,8 +1,9 @@
 <% @title="Edit Admin" %>
-<h1>Edit Admins</h1>
-<p>Edit a admin here</p>
-<%= link_to("View all admins", admins_path()) %>
-<%= form_for(@admin) do |f| %>
-  <%= render(partial: 'adminform', locals: {f: f}) %>
-  <%= f.submit("Update admin") %>
-<% end %>
+<div class="login-form-container clearfix">
+  <h1>Edit Admin</h1>
+  <%= link_to("View all admins", admins_path()) %>
+  <%= form_for(@admin) do |f| %>
+    <%= render(partial: 'adminform', locals: {f: f}) %>
+    <%= f.submit("Update admin", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

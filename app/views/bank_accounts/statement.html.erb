@@ -1,40 +1,38 @@
 <% @title="View Bank Statement" %>
-
 <% currency = Currency.find(current_user[:currency_id]) %>
 <% transactions = Transaction.where(bank_account: @bank_account) %>
 <% money_in = transactions.calculate(:sum, :money_in) %>
 <% money_out = transactions.calculate(:sum, :money_out) %>
-
-<h1>Statement for <%= @bank_account[:account_name] %></h1>
-<h2>Account number: <%= @bank_account[:account_number] %> | Sort code: <%= @bank_account[:sort_code] %></h2>
-<h3>Balance: <%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %> | Interest rate: <%= @bank_account[:interest_rate] %>%</h3>
-
-<%= link_to("Return to view all accounts", '/account') %>
-
-<table class="table table-striped table-bordered">
+<div class="container mt-5">
+  <h1>Statement for <%= @bank_account[:account_name] %></h1>
+  <h2>Account number: <%= @bank_account[:account_number] %> | Sort code: <%= @bank_account[:sort_code] %></h2>
+  <h3>Balance: <%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %> | Interest rate: <%= @bank_account[:interest_rate] %>%</h3>
+  <%= link_to("Return to view all accounts", '/account') %>
+  <table class="table table-striped table-bordered">
     <thead class="thead-light">
-        <tr>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Reference</th>
-            <th>Money In</th>
-            <th>Money Out</th>
-        </tr>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Reference</th>
+        <th>Money In</th>
+        <th>Money Out</th>
+      </tr>
     </thead>
     <% transactions.each do |transaction| %>
-    <tr>
+      <tr>
         <td><%= transaction.date %></td>
         <td><%= transaction.description %></td>
         <td><%= transaction.reference %></td>
         <td><%= number_to_currency((transaction.money_in) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></td>
         <td><%= number_to_currency((transaction.money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></td>
-    </tr>
+      </tr>
     <% end %>
     <tr>
-        <td></td>
-        <td></td>
-        <td>Totals:</td>
-        <td><%= number_to_currency((money_in) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></td>
-        <td><%= number_to_currency((money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></td>
+      <td></td>
+      <td></td>
+      <td>Totals:</td>
+      <td><%= number_to_currency((money_in) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></td>
+      <td><%= number_to_currency((money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></td>
     </tr>
-</table>
+  </table>
+</div>

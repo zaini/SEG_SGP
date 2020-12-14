@@ -1,17 +1,33 @@
 <%= error_messages_for(f.object) %>
-<p>First Name</p>
-<%= f.text_field(:first_name) %>
-<p>Middle Name</p>
-<%= f.text_field(:middle_name) %>
-<p>Last Name</p>
-<%= f.text_field(:last_name) %>
-<p>Email</p>
-<%= f.text_field(:email) %>
-<p>Confirm email</p>
-<%= f.text_field(:email_confirmation) %>
-<p>Password</p>
-<%= f.password_field(:password) %>
-<p>Confirm password</p>
-<%= f.password_field(:password_confirmation) %>
-<p>Currency</p>
-<%= f.collection_select(:currency_id, Currency.all, :id, :code) %>
+<dl class="form">
+  <dt><%= f.label :first_name, "First Name" %></dt>
+  <dd><%= f.text_field(:first_name) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :middle_name, "Middle Name" %></dt>
+  <dd><%= f.text_field(:middle_name) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :last_name, "Last Name" %></dt>
+  <dd><%= f.text_field(:last_name) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :email, "Email" %></dt>
+  <dd><%= f.text_field(:email) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :email_confirmation, "Confirm email" %></dt>
+  <dd><%= f.text_field(:email_confirmation) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :password, "Password" %></dt>
+  <dd><%= f.password_field(:password) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :password_confirmation, "Confirm password" %></dt>
+  <dd><%= f.password_field(:password_confirmation) %></dd>
+</dl>
+<dl class="form">
+  <dt><%= f.label :currency_id, "Currency" %></dt>
+  <dd><%= f.collection_select(:currency_id, Currency.all, :id, :code) %></dd>
+</dl>

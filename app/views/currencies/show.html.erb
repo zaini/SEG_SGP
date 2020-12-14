@@ -1,17 +1,21 @@
-<% @title=`View Currency #{@currency.code}` %>
-
-<h1>View your currency</h1>
-<%= link_to("View all currencies", currencies_path()) %>
-<%= link_to('Edit this currency', edit_currency_path(@currency)) %>
-<table class="table">
-  <tr>
-    <th>Code</th>
-    <th>Symbol</th>
-    <th>Rate to GBP</th>
-  </tr>
-  <tr>
+<% @title="View Currency #{@currency.code.to_s}" %>
+<div class="container mt-5">
+  <h1>View your currency</h1>
+  <%= link_to("View all currencies", currencies_path()) %>
+  <br/>
+  <%= link_to('Edit this currency', edit_currency_path(@currency)) %>
+  <br/>
+  <br/>
+  <table class="table">
+    <tr>
+      <th>Code</th>
+      <th>Symbol</th>
+      <th>Rate to GBP</th>
+    </tr>
+    <tr>
       <td><%= @currency.code %></td>
       <td><%= @currency.symbol %></td>
       <td><%= @currency.rate_to_gbp %></td>
-  </tr>
-</table>
+    </tr>
+  </table>
+</div>

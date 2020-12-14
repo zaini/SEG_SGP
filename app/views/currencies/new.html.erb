@@ -1,9 +1,10 @@
 <% @title="Create Currency" %>
-
-<h1>Create a new currency</h1>
-<%= link_to("View all currencies", currencies_path()) %>
-<%= form_for(@currency, :url => currencies_path, :method => 'post') do |f| %>
-<%= render(partial: 'currencyform', locals: {f: f}) %>
-<br></br>
-<%= f.submit("Create Currency") %>
-<% end %>
+<div class="login-form login-form-container clearfix">
+  <h1>Create a new currency</h1>
+  <%= link_to("View all currencies", currencies_path()) %>
+  <%= form_for(@currency, :url => currencies_path, :method => 'post') do |f| %>
+    <%= render(partial: 'currencyform', locals: {f: f}) %>
+    <br/>
+    <%= f.submit("Create Currency", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

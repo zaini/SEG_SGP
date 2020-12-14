@@ -1,1 +1,9 @@
-No edit option rn
+<% @title="Edit Currency" %>
+<div class="login-form-container clearfix">
+  <h1>Edit Currency</h1>
+  <%= link_to("View all currencies", currencies_path()) %>
+  <%= form_for(@currency) do |f| %>
+    <%= render(partial: 'currencyform', locals: {f: f}) %>
+    <%= f.submit("Update Currency", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

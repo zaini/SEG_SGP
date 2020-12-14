@@ -1,8 +1,6 @@
 <% @user = current_user %>
 <% currency = Currency.find(current_user[:currency_id]) %>
-
-<% @title=`King's Banking | #{@user[:first_name]} #{@user[:last_name]}` %>
-
+<% @title="King's Banking | #{@user[:first_name].to_s} #{@user[:last_name].to_s}" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,13 +13,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <div style="margin: 10px">
+    <div style="margin: 10px; margin-bottom: 300px">
       <!-- Welcome text to the account with your name and maybe some options to other pages -->
       <div>
         <h1>Welcome <%= @user[:first_name] + " " + @user[:last_name] %></h1>
         <h2>Last logged in: <%= @user[:last_logged_in] %></h2>
       </div>
-
       <!-- side panel about messages / special offers to the left -->
       <div class="card" style="margin: 2%">
         <div class="card-header">
@@ -34,7 +31,6 @@
           </blockquote>
         </div>
       </div>
-
       <div class="card text-center float-left" style="width: 20%">
         <div class="card-header bg-danger font-weight-bold">
           Featured Offers
@@ -52,14 +48,12 @@
           Offer expires in 2 days
         </div>
       </div>
-
       <!-- list of your accounts, their current balance and some other information with buttons for view statements, make payment, make transfer and more actions -->
       <div class="container">
         <% BankAccount.where(user: @user).each do |account| %>
           <% transactions = Transaction.where(bank_account: account) %>
           <% money_in = transactions.calculate(:sum, :money_in) %>
           <% money_out = transactions.calculate(:sum, :money_out) %>
-
           <div class="card" style="width: 50%">
             <div class="card-body">
               <h5 class="card-title"><%= account[:account_name] %></h5>

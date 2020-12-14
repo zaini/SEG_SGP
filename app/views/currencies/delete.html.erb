@@ -1,9 +1,10 @@
 <% @title="Delete Currency" %>
-
-<h1>Delete this currency</h1>
-<%= link_to("View all currencies", currencies_path()) %>
-<%= form_for(@currency, :method => "delete") do |f| %>
-  <p>Are you sure you want to delete this currency?</p>
-  <%= render(partial: 'currencyform', locals: {f: f}) %>
-  <%= f.submit('delete currency') %>
-<% end %>
+<div class="login-form-container clearfix">
+  <h1>Delete this currency</h1>
+  <%= link_to("View all currencies", currencies_path()) %>
+  <%= form_for(@currency, :method => "delete") do |f| %>
+    <p>Are you sure you want to delete this currency?</p>
+    <%= render(partial: 'currencyform', locals: {f: f}) %>
+    <%= f.submit('Delete Currency', :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>

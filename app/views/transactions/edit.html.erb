@@ -1,10 +1,9 @@
 <% @title="Edit Transaction" %>
-
-<h1>Transactions#edit</h1>
-
-<%= link_to 'Back', bank_account_transactions_path(@bank_account) %>
-
-<%= form_with(model: [@bank_account,@transaction], local: true) do |f| %>
-<%= render(partial: 'transactionform', locals: {f: f}) %>
-  <%= f.submit("Update transaction") %>
-<% end %>
+<div class="login-form-container clearfix">
+  <h1>Edit transaction</h1>
+  <%= link_to 'Back', bank_account_transactions_path(@bank_account) %>
+  <%= form_with(model: [@bank_account,@transaction], local: true) do |f| %>
+    <%= render(partial: 'transactionform', locals: {f: f}) %>
+    <%= f.submit("Update transaction", :class => "login-button btn btn-primary") %>
+  <% end %>
+</div>
