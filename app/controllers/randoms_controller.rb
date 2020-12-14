@@ -1,4 +1,4 @@
-class sController < ApplicationController
+class RandomsController < ApplicationController
 
 def random
     require 'faker'
@@ -11,7 +11,7 @@ def random
     email = Faker::Internet.unique.free_email
     password = "password123" 
     id = current_user.id
-    User.create!(admin_id:id, first_name:first_name, middle_name:middle_name, last_name:last_name, email:email,email_confirmation:email,password_digest:password)
+    User.create!(admin_id:id, first_name:first_name, middle_name:middle_name, last_name:last_name, email:email,email_confirmation:email,password:password)
 end
 
 
@@ -22,7 +22,6 @@ end
     sort_code = Faker::Number.unique.number(digits: 6)
     id = rand(1..User.ids.max)
     BankAccount.create!(user_id:id, account_name:account_name, account_number:account_number, sort_code:sort_code)
-       
 end
 
 
