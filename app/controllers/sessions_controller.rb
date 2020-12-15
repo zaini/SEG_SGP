@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
       redirect_to :controller => 'pages', :action => 'account'
       # redirect_to(pages_account_path()) # when you login, go to the bank account page
     else
-      # TODO merge errors with new
       redirect_to :controller => 'pages', :action => 'error'
       # render 'new'
     end
@@ -31,7 +30,6 @@ class SessionsController < ApplicationController
       redirect_to :controller => 'pages', :action => 'admin_panel'
       # redirect_to(pages_admin_panel_path()) # when you login, go to the admin panel page
     else
-      # TODO merge errors with new
       redirect_to :controller => 'pages', :action => 'error'
       # render 'new'
     end

@@ -3,70 +3,82 @@
 <% @title="King's Banking | #{@user[:first_name].to_s} #{@user[:last_name].to_s}" %>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Your KB Account</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div style="margin: 10px; margin-bottom: 300px">
-      <!-- Welcome text to the account with your name and maybe some options to other pages -->
-      <div>
-        <h1>Welcome <%= @user[:first_name] + " " + @user[:last_name] %></h1>
-        <h2>Last logged in: <%= @user[:last_logged_in] %></h2>
-      </div>
-      <!-- side panel about messages / special offers to the left -->
-      <div class="card" style="margin: 2%">
-        <div class="card-header">
-          Tip of the day!
-        </div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Don't let unknown callers access your bank account! Be wary of those who call claiming to offer a refund, tech support for viruses or other malicious scams!</p>
-            <footer class="blockquote-footer">Jim Browning<cite title="Source Title">, YouTube</cite></footer>
-          </blockquote>
-        </div>
-      </div>
-      <div class="card text-center float-left" style="width: 20%">
-        <div class="card-header bg-danger font-weight-bold">
-          Featured Offers
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">10% Cashback on selected stores!</h5>
-          <div class="card-body">
-            <%= image_tag("amazon.png", :alt => "Amazon Logo", height: '32') %>
-            <%= image_tag("apple.png", :alt => "Apple Logo", height: '32') %>
-            <%= image_tag("dell.png", :alt => "Dell Logo", height: '32') %>
+<head>
+  <title>Your KB Account</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+
+<div style="margin: 10px; margin-bottom: 300px">
+  <!-- Welcome text to the account with your name and maybe some options to other pages -->
+  <div>
+    <h1>Welcome <%= @user[:first_name] + " " + @user[:last_name] %></h1>
+    <h6><kbd>Last logged in: <%= @user[:last_logged_in] %></kbd></h6>
+  </div>
+  <!-- side panel about messages / special offers to the left -->
+  <div class="card" style="margin: 2%">
+    <div class="card-header">
+      Tip of the day!
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>Don't let unknown callers access your bank account! Be wary of those who call claiming to offer a refund, tech support for viruses or other malicious scams!</p>
+        <footer class="blockquote-footer">Jim Browning<cite title="Source Title">, YouTube</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="container-xl">
+    <div class="row">
+      <div class="col-sm-3">
+
+        <div class="card text-center" style="width: 100%">
+          <div class="card-header bg-danger font-weight-bold">
+            Featured Offers
           </div>
-          <a href="/offer" class="btn btn-primary">View all offers</a>
+          <div class="card-body">
+            <h5 class="card-title">10% Cashback on selected stores!</h5>
+            <div class="card-body">
+              <%= image_tag("amazon.png", :alt => "Amazon Logo", height: '32') %>
+              <%= image_tag("apple.png", :alt => "Apple Logo", height: '32') %>
+              <%= image_tag("dell.png", :alt => "Dell Logo", height: '32') %>
+            </div>
+            <a href="/offer" class="btn btn-primary">View all offers</a>
+          </div>
+          <div class="card-footer text-dark bg-danger">
+            Offer expires in 2 days
+          </div>
         </div>
-        <div class="card-footer text-dark bg-danger">
-          Offer expires in 2 days
-        </div>
+
       </div>
       <!-- list of your accounts, their current balance and some other information with buttons for view statements, make payment, make transfer and more actions -->
-      <div class="container">
-        <% BankAccount.where(user: @user).each do |account| %>
+      <div class="col-sm-9">
+        <div class="container">
+          <% BankAccount.where(user: @user).each do |account| %>
           <% transactions = Transaction.where(bank_account: account) %>
           <% money_in = transactions.calculate(:sum, :money_in) %>
           <% money_out = transactions.calculate(:sum, :money_out) %>
-          <div class="card" style="width: 50%">
+          <div class="card" style="width: 80%">
             <div class="card-body">
-              <h5 class="card-title"><%= account[:account_name] %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"><%= account[:account_number] %> | <%= account[:sort_code] %></h6>
-              <p class="card-text">Current balance: <%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %> | Interest rate: <%= account[:interest_rate] %>%</p>
-              <%= link_to "View Statement", statement_bank_account_path(account) %> |
-              <%= link_to "Make Transfer", transfer_bank_account_path(account) %> |
-              <%= link_to "Make Payments", payment_bank_account_path(account) %>
+              <h4 class="card-title"><%= account[:account_name] %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><kbd>Account Number: <%= account[:account_number] %> | Sort Code: <%= account[:sort_code] %></kbd></h6>
+                  <h5 class="card-text">Current balance: <b><%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></b> | Interest rate: <%= account[:interest_rate] %>%</p>
+                   <%= link_to "View Statement", statement_bank_account_path(account) %> |
+                   <%= link_to "Transfer Between Accounts", transfer_bank_account_path(account) %> |
+                   <%= link_to "Make Payment", payment_bank_account_path(account) %>
+
+                  </div>
+                </div>
+                <br/>
+                <% end %>
+              </div>
             </div>
           </div>
-          <br/>
-        <% end %>
+        </div>
       </div>
-    </div>
-  </body>
-</html>
+
+      </html>

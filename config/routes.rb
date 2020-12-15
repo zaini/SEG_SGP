@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get 'contact_us', to: 'extras#contact_us'
   get 'savings', to: 'extras#savings'
   
-  # These two require session to be validated
   get 'account', to: 'pages#account'
   get 'account/:id', to: 'bank_accounts#show'
   get 'admin_panel', to: 'pages#admin_panel'
@@ -24,18 +23,13 @@ Rails.application.routes.draw do
   post 'admin/login', to: 'sessions#create_admin'
   get 'admin/login', to: 'sessions#new_admin'
   match 'admin/signup', to: 'admins#new', via: :get
+  post 'admins', to: 'admins#create'
 
   delete 'logout', to: 'sessions#destroy'
 
   get 'admin_panel/users', to: 'users#index'
 
   resources :users do
-    member do
-      get :delete
-    end
-  end
-
-  resources :admins do
     member do
       get :delete
     end
@@ -56,11 +50,11 @@ Rails.application.routes.draw do
     resources :transactions
   end
 
-  resources :currencies do
-    member do
-      get :delete
-    end
-  end
+  # resources :currencies do
+  #   member do
+  #     get :delete
+  #   end
+  # end
   
   get 'admin', to: 'pages#admin'
   match "*path", to: 'pages#error404', via: :all
