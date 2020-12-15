@@ -6,16 +6,12 @@ class TransactionsController < ApplicationController
     @transactions = @bank_account.transactions
   end
  
-  def show
-  end
-
   def new 
     @transaction = @bank_account.transactions.build
   end
 
   def create
     @transaction = @bank_account.transactions.build(transaction_params)
-    
     respond_to do |format|
       if @transaction.valid? && @transaction.save
          format.html { redirect_to bank_account_transactions_path(@bank_account), notice: 'Transaction was successfully created.' }
@@ -23,9 +19,6 @@ class TransactionsController < ApplicationController
          format.html { render :new ,notice:'Error!'}
       end
     end
-  end
-
-  def edit
   end
 
   def update
