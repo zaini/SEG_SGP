@@ -1,5 +1,6 @@
 class BankAccountsController < ApplicationController
   before_action :set_bank_account, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
   
   def index
     @users = User.where(admin: current_user)
