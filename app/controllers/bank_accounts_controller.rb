@@ -56,11 +56,12 @@ class BankAccountsController < ApplicationController
   end
 
   def transfer_money
+    currency = Currency.find(current_user[:currency_id])
     @from_bank_account = BankAccount.find(params[:id])
     @to_bank_account = BankAccount.find(params[:bank_account_id])
     @description = "TRANSFER FROM " + [current_user[:first_name], current_user[:last_name], @from_bank_account[:account_name]].map(&:to_s).join(', ')
     @reference = "TRANSFER FROM " + [current_user[:first_name], current_user[:last_name], @from_bank_account[:account_name]].map(&:to_s).join(', ')
-    @amount = params[:amount]
+    @amount = params[:amount].to_f * currency[:rate_to_gbp]
     @time = Time.now
 
     @out = Transaction.new(bank_account: @from_bank_account, date: @time, description: @description, reference: @reference, money_in: 0, money_out: @amount)
@@ -78,12 +79,13 @@ class BankAccountsController < ApplicationController
   end
 
   def send_payment
+    currency = Currency.find(current_user[:currency_id])
     @from_bank_account = BankAccount.find(params[:id])
     @to_account_number = params[:account_number]
     @to_sort_code = params[:sort_code]
     @description = params[:description]
     @reference = params[:reference]
-    @amount = params[:amount]
+    @amount = params[:amount].to_f * currency[:rate_to_gbp]
     @time = Time.now
 
     @out = Transaction.new(bank_account: @from_bank_account, date: @time, description: @description, reference: @reference, money_in: 0, money_out: @amount)
