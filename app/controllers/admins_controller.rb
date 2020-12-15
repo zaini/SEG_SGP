@@ -14,7 +14,7 @@ class AdminsController < ApplicationController
   def create
     @admin = Admin.new(admin_params)
     if @admin.valid? && @admin.save
-      redirect_to(admins_path)
+      redirect_to(admin_login_path)
     else
       render('new')
     end
@@ -40,7 +40,7 @@ class AdminsController < ApplicationController
   def destroy
     @admin = Admin.find(params[:id])
     @admin.destroy
-    redirect_to(admins_path)
+    redirect_to(admin_index_path)
   end
 
   private

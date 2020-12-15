@@ -23,18 +23,13 @@ Rails.application.routes.draw do
   post 'admin/login', to: 'sessions#create_admin'
   get 'admin/login', to: 'sessions#new_admin'
   match 'admin/signup', to: 'admins#new', via: :get
+  post 'admins', to: 'admins#create'
 
   delete 'logout', to: 'sessions#destroy'
 
   get 'admin_panel/users', to: 'users#index'
 
   resources :users do
-    member do
-      get :delete
-    end
-  end
-
-  resources :admins do
     member do
       get :delete
     end
