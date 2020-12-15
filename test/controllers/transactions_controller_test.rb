@@ -26,7 +26,6 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get update" do
-    # t = transactions(:one)
     patch bank_account_transaction_path(@account,@transaction), params:  {bank_account:@account,transaction: {date:'2020-12-05 15:48:49', description:'@transaction1.description', reference:'@transaction1.reference', money_in:1000, money_out:0}}
     assert_redirected_to bank_account_transactions_path(@account)
     @transaction.reload
@@ -35,7 +34,6 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get destroy" do
     transaction = transactions(:one)
-    # transaction.bank_account = @account
     assert_difference('Transaction.count',-1) do
       delete bank_account_transaction_path(@account,@transaction)
     end

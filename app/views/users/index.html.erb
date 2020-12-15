@@ -11,6 +11,8 @@
       <th>Middle Name</th>
       <th>Last Name</th>
       <th>Email</th>
+      <th>Currency</th>
+      <th>Number of Bank Account</th>
       <th>Actions</th>
     </tr>
     <% @users.each do |user| %>
@@ -19,6 +21,8 @@
         <td><%= user.middle_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
+        <td><%= Currency.find(user.currency_id).code %></td>
+        <td><%= user.bank_accounts.count %></td>
         <td>
           <%= link_to('Show', user_path(user)) %> |
           <%= link_to('Edit', edit_user_path(user)) %> |
