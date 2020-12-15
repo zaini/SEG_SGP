@@ -5,13 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  username: admin
-  email: admin@email.com
+  username: adminone
+  email: adminone@email.com
   password_digest: password123
 
 short_password:
-  username: admin
-  email: admin@email.com
+  username: shortpassadmin
+  email: shortpassadmin@email.com
   password_digest: 1
 # column: value
 #
