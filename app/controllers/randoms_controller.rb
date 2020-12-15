@@ -15,7 +15,8 @@ class RandomsController < ApplicationController
         password = "password123" 
         id = current_user.id
         id1 = rand(1..Currency.ids.max)
-        User.create!(admin_id:id, currency_id:id1, first_name:first_name, middle_name:middle_name, last_name:last_name, email:email,email_confirmation:email,password:password)
+        last_logged_in = Time.now
+        User.create!(admin_id:id, currency_id:id1, first_name:first_name, middle_name:middle_name, last_name:last_name, email:email,email_confirmation:email,password:password, last_logged_in: last_logged_in)
     end
 
     #Generate random Bank Accounts
@@ -23,8 +24,9 @@ class RandomsController < ApplicationController
         account_name = Faker::Name.account_name   
         account_number = Faker::Number.unique.number(digits: 16)
         sort_code = Faker::Number.unique.number(digits: 6)
+        interest_rate = Faker::Number.decimal(l_digits: 0, r_digits: 5)
         id = rand(1..User.ids.max)
-        BankAccount.create!(user_id:id, account_name:account_name, account_number:account_number, sort_code:sort_code)
+        BankAccount.create!(user_id:id, account_name:account_name, account_number:account_number, sort_code:sort_code, interest_rate:interest_rate)
     end
 
     #Generate random Transactions
