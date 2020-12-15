@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :bank_accounts
     has_one :currency # not sure if we need this. don't think the relationship is set up properly because i can't do user.currency = gbp or something like that
     has_secure_password
-    
+    validates :password, length: { minimum: 6 }
     validates :first_name, presence: true, length: {minimum: 2}
     # validates :middle_name
     validates :last_name, presence: true, length: {minimum: 2}
