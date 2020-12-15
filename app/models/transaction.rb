@@ -1,6 +1,5 @@
 class Transaction < ApplicationRecord
     belongs_to :bank_account
-    
     validates :date, presence: true
     validates :description, presence: true
     validates :reference, presence: true
