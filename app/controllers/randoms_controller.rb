@@ -7,7 +7,7 @@ class RandomsController < ApplicationController
         I18n.reload!
 
     #Generate random Users
-    20.times do
+    5.times do
         first_name = Faker::Name.first_name  
         middle_name = Faker::Name.middle_name
         last_name = Faker::Name.last_name 
@@ -20,7 +20,7 @@ class RandomsController < ApplicationController
     end
 
     #Generate random Bank Accounts
-    60.times do
+    30.times do
         account_name = Faker::Name.account_name   
         account_number = Faker::Number.unique.number(digits: 16)
         sort_code = Faker::Number.unique.number(digits: 6)
@@ -31,7 +31,7 @@ class RandomsController < ApplicationController
 
     #Generate random Transactions
     #income
-    100.times do
+    150.times do
         date = Faker::Date.in_date_period   
         description = Faker::Name.description    
         reference = Faker::Invoice.reference
