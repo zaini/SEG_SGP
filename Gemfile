@@ -47,6 +47,9 @@ group :development do
 end
 
 gem 'rails-erd', group: :development
+group :development, :test do
+    gem 'railroady'
+end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
