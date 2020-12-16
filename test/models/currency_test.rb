@@ -36,11 +36,5 @@ class CurrencyTest < ActiveSupport::TestCase
     assert_not currency2.save, "Saved 2 currency with same code"
   end
 
-  test "should not create two currencies with same symbol" do
-    currency1 = Currency.new(symbol:"FOO", code:"BAR", rate_to_gbp:1.1)
-    currency1.save
-    currency2 = Currency.new(symbol:"FOO", code:"ABC", rate_to_gbp:1.1)
-    assert_not currency2.save, "Saved 2 currency with same symbol"
-  end
 
 end
