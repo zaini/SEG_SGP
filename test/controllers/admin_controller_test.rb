@@ -11,14 +11,14 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-     get new_admin_path
+     get admin_signup_url
      assert_response :success
   end
 
   test "post create should work with valid data" do
     assert_difference('Admin.count',1) do
       post admin_path, params: {username:'ABCDE', email:'ABCDE@email.com', email_confirmation:'ABCDE@email.com', password:'123456', password_confirmation:'123456'}
-      #:username, :email, :email_confirmation, :password, :password_confirmation
+      #:usernames, :email, :email_confirmation, :password, :password_confirmation
     end
     assert_redirected_to admin_login_path
   end
