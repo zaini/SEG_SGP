@@ -22,7 +22,7 @@ class RandomsController < ApplicationController
     end
 
     # Generate random Bank Accounts
-    30.times do
+    15.times do
         account_name = Faker::Name.account_name   
         account_number = Faker::Number.unique.number(digits: 16)
         sort_code = Faker::Number.unique.number(digits: 6)
@@ -33,7 +33,7 @@ class RandomsController < ApplicationController
 
     # Generate random Transactions
     # income
-    150.times do
+    3000.times do
         date = Faker::Date.in_date_period   
         description = Faker::Name.description    
         reference = Faker::Invoice.reference
@@ -43,10 +43,10 @@ class RandomsController < ApplicationController
         Transaction.create!(bank_account_id: id, date: date, description: description, reference: reference, money_in: money_in, money_out: money_out)
     end
 
-    #spend
-    100.times do
-        date = Faker::Date.in_date_period   
-        description = Faker::Commerce.product_name    
+    # spend
+    3000.times do
+        date = Faker::Date.in_date_period
+        description = Faker::Commerce.product_name
         reference = Faker::Invoice.reference
         money_in = 0
         money_out = Faker::Number.decimal(l_digits: 2, r_digits: 2) 
@@ -62,6 +62,9 @@ private
             Currency.create!(code:"USD", symbol:"$", rate_to_gbp:0.75)
             Currency.create!(code:"GBP", symbol:"£", rate_to_gbp:1)
             Currency.create!(code:"CNY", symbol:"¥", rate_to_gbp:0.11)
+            Currency.create!(code:"EUR", symbol:"€", rate_to_gbp:0.90)
+            Currency.create!(code:"DKK", symbol:"Kr.", rate_to_gbp:0.12)
+            Currency.create!(code:"MYR", symbol:"RM", rate_to_gbp:0.18)
         end 
     end
 end

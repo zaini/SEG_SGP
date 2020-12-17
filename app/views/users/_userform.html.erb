@@ -32,9 +32,14 @@
   <% if Currency.count != 0 %>
   <dd><%= f.collection_select(:currency_id, Currency.all, :id, :code) %></dd>
   <% else %>
-  <% Currency.create!(code:"USD", symbol:"$", rate_to_gbp:0.75) %>
-  <% Currency.create!(code:"GBP", symbol:"£", rate_to_gbp:1)%>
-  <% Currency.create!(code:"CNY", symbol:"¥", rate_to_gbp:0.11)%>
+  <%
+  Currency.create!(code:"USD", symbol:"$", rate_to_gbp:0.75)
+  Currency.create!(code:"GBP", symbol:"£", rate_to_gbp:1)
+  Currency.create!(code:"CNY", symbol:"¥", rate_to_gbp:0.11)
+  Currency.create!(code:"EUR", symbol:"€", rate_to_gbp:0.90)
+  Currency.create!(code:"DKK", symbol:"Kr.", rate_to_gbp:0.12)
+  Currency.create!(code:"MYR", symbol:"RM", rate_to_gbp:0.18)
+  %>
   <dd><%= f.collection_select(:currency_id, Currency.all, :id, :code) %></dd>
   <% end %>
 </dl>
