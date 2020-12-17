@@ -66,19 +66,19 @@
             <div class="card-body">
               <h4 class="card-title"><%= account[:account_name] %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><kbd>Account Number: <%= account[:account_number] %> | Sort Code: <%= account[:sort_code] %></kbd></h6>
-                  <h5 class="card-text">Current balance: <b><%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></b> | Interest rate: <%= account[:interest_rate] %>%</p>
-                   <%= link_to "View Statement", statement_bank_account_path(account) %> |
-                   <%= link_to "Transfer Between Accounts", transfer_bank_account_path(account) %> |
-                   <%= link_to "Make Payment", payment_bank_account_path(account) %>
+                <h5 class="card-text">Current balance: <b><%= number_to_currency((money_in - money_out) / currency[:rate_to_gbp], :unit => currency[:symbol]) %></b> | Interest rate: <%= account[:interest_rate] %>%</p>
+                  <%= link_to "View Statement", statement_bank_account_path(account) %> |
+                  <%= link_to "Transfer Between Accounts", transfer_bank_account_path(account) %> |
+                  <%= link_to "Make Payment", payment_bank_account_path(account) %>
 
-                  </div>
                 </div>
-                <br/>
-                <% end %>
               </div>
+              <br/>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      </html>
+    </html>

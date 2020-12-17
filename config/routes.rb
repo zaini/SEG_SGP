@@ -1,16 +1,17 @@
 Rails.application.routes.draw do
   root 'extras#landing'
-  
+
   get 'pages/error'
 
   get 'randoms/random'
 
   get 'offer', to: 'extras#offer'
-  
+
   get 'loans', to: 'extras#loan'
+  get 'loan', to: 'extras#loan'
   get 'contact_us', to: 'extras#contact_us'
   get 'savings', to: 'extras#savings'
-  
+
   get 'account', to: 'pages#account'
   get 'account/:id', to: 'bank_accounts#show'
   get 'admin_panel', to: 'pages#admin_panel'
@@ -55,7 +56,7 @@ Rails.application.routes.draw do
   #     get :delete
   #   end
   # end
-  
+
   get 'admin', to: 'pages#admin'
   match "*path", to: 'pages#error404', via: :all
 
