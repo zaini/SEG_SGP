@@ -33,7 +33,7 @@ class RandomsController < ApplicationController
 
     # Generate random Transactions
     # income
-    3000.times do
+    1000.times do
         date = Faker::Date.in_date_period   
         description = Faker::Name.description    
         reference = Faker::Invoice.reference
@@ -44,7 +44,7 @@ class RandomsController < ApplicationController
     end
 
     # spend
-    3000.times do
+    1000.times do
         date = Faker::Date.in_date_period
         description = Faker::Commerce.product_name
         reference = Faker::Invoice.reference
