@@ -2,10 +2,11 @@ require 'test_helper'
 
 class UserControllerTest < ActionDispatch::IntegrationTest
   setup do
-     @admin = Admin.create!(username: "banana", email: "banana@email.com", email_confirmation: "banana@email.com", password: "banana", password_confirmation: "banana")
-     @currency = Currency.create!(code: "KCL", symbol: "$", rate_to_gbp:1.1)
-     @user = User.create!(admin: @admin, first_name: "Grape", middle_name: "Grape", last_name: "Grape", email: "grape@email.com", email_confirmation: "grape@email.com", password: "grape1", password_confirmation: "grape1", currency_id: @currency)
-     #SessionsController.create_admin!()
+    @admin = Admin.create!(username: "banana", email: "banana@email.com", email_confirmation: "banana@email.com", password: "banana", password_confirmation: "banana")
+    @currency = Currency.create!(code: "KCL", symbol: "$", rate_to_gbp:1.1)
+    @user = User.create!(admin: @admin, first_name: "Grape", middle_name: "Grape", last_name: "Grape", email: "grape@email.com", email_confirmation: "grape@email.com", password: "grape1", password_confirmation: "grape1", currency_id: @currency[:id])
+
+    post admin_login_path, params: { session: {username: "banana", password: "banana"} }
   end
 
   test "should get index" do
@@ -22,14 +23,14 @@ class UserControllerTest < ActionDispatch::IntegrationTest
 
   test "post create should work with valid data" do
     assert_difference('User.count',1) do
-      post users_path, params: {user:{admin: @admin, first_name:"Foo", middle_name:"Bar", last_name:"Foo", email:"foobar@email.com", email_confirmation:"foobar@email.com", password:"foobar", password_confirmation:"foobar", currency_id:@currency}}
+      post users_path, params: {user: { admin: @admin, first_name: "Foo", middle_name: "Bar", last_name:"Foo", email:"foobar@email.com", email_confirmation:"foobar@email.com", password:"foobar", password_confirmation:"foobar", currency_id:@currency[:id]}}
       #:first_name, :middle_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :currency_id
     end
     assert_redirected_to users_path
   end
 
   test "should get update" do
-    patch users_path(@user), params:  {user:{admin: @admin, first_name: "Apple", middle_name: "Grape", last_name: "Grape", email: "grape@email.com", email_confirmation: "grape@email.com", password: "grape1", password_confirmation: "grape1", currency_id: @currency}}
+    patch users_path(@user), params: {user:{admin: @admin, first_name: "Apple", middle_name: "Grape", last_name: "Grape", email: "grape@email.com", email_confirmation: "grape@email.com", password: "grape1", password_confirmation: "grape1", currency_id: @currency[:id]}}
     assert_redirected_to user_path(@user)
     @user.reload
     assert_equal "Apple", @user.first_name
