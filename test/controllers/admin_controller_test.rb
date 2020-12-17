@@ -2,7 +2,11 @@ require 'test_helper'
 
 class AdminControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @admin = Admin.create!(username:'ABCDE', email:'ABCDE@email.com', email_confirmation:'ABCDE@email.com', password:'123456', password_confirmation:'123456')
+    @admin = Admin.create!(username: "banana", email: "banana@email.com", email_confirmation: "banana@email.com", password: "banana", password_confirmation: "banana")
+    @currency = Currency.create!(code: "KCL", symbol: "$", rate_to_gbp:1.1)
+    @user = User.create!(admin: @admin, first_name: "Grape", middle_name: "Grape", last_name: "Grape", email: "grape@email.com", email_confirmation: "grape@email.com", password: "grape1", password_confirmation: "grape1", currency_id: @currency[:id])
+
+    post admin_login_path, params: { session: {username: "banana", password: "banana"} }
   end
 
   test "should get index" do
