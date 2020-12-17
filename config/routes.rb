@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   get 'offer', to: 'extras#offer'
 
-  get 'loans', to: 'extras#loan'
   get 'loan', to: 'extras#loan'
+  get 'loans', to: 'extras#loan'
   get 'contact_us', to: 'extras#contact_us'
   get 'savings', to: 'extras#savings'
 
