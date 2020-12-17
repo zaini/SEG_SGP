@@ -1,6 +1,6 @@
 <% @title="View Bank Statement" %>
 <% currency = Currency.find(current_user[:currency_id]) %>
-<% transactions = Transaction.where(bank_account: @bank_account) %>
+<% transactions = Transaction.where(bank_account: @bank_account).order(:date).reverse_order %>
 <% money_in = transactions.calculate(:sum, :money_in) %>
 <% money_out = transactions.calculate(:sum, :money_out) %>
 <div class="container mt-5">

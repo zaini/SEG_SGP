@@ -26,7 +26,7 @@ class RandomsController < ApplicationController
             account_name = Faker::Name.account_name   
             account_number = Faker::Number.unique.number(digits: 16)
             sort_code = Faker::Number.unique.number(digits: 6)
-            interest_rate = Faker::Number.decimal(l_digits: 1, r_digits: 2)
+            interest_rate = Faker::Number.between(from: 0.02, to: 3.0).round(2)
             ba = BankAccount.create!(user_id: id, account_name: account_name, account_number: account_number, sort_code: sort_code, interest_rate: interest_rate)
             ba_id = ba.id
 
