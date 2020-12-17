@@ -42,7 +42,8 @@ class TransactionsController < ApplicationController
   def transaction_params
     params.require(:transaction).permit(:date, :description, :reference, :money_in, :money_out)
   end
-  
+
+  # Share common setup between actions.
   def get_account
     @bank_account = BankAccount.find(params[:bank_account_id]) 
   end

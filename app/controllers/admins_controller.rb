@@ -52,8 +52,8 @@ class AdminsController < ApplicationController
   end
 
   private
-    # Checks that the params given are permitted
-    def admin_params
-      params.require(:admin).permit(:username, :email, :email_confirmation, :password, :password_confirmation)
-    end
+  # Checks that the params given are permitted
+  def admin_params
+    params.require(:admin).permit(:username, :email, :email_confirmation, :password, :password_confirmation)
+  end
 end

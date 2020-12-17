@@ -8,11 +8,11 @@ We were assigned 5 members but Zhang Siyuan never showed up. This limited the sc
 
 Application has been deployed on Heroku and can be found [here](https://kingsbanking.herokuapp.com/).
 
-To login as an admin, visit https://kingsbanking.herokuapp.com/admin/login and login with username ```admin``` and password ```admin```. All the admin features require you to be logged in as an admin and to then access the URL [directly](https://kingsbanking.herokuapp.com/admin) or from the footer, where it is hidden.
+To login as an admin, visit https://kingsbanking.herokuapp.com/admin/login and login with username ```admin``` and password ```password123```. All the admin features require you to be logged in as an admin and to then access the URL [directly](https://kingsbanking.herokuapp.com/admin) or from the footer, where it is hidden.
 
-This admin has two users. You can login as one of the those users by logging out of the admin account and clicking login and using email ```john.smith@email.com``` and password ```password123```.
+This admin has two users. You can login as one of the those users by logging out of the admin account and clicking login and using email ```john.smith@email.com``` and password ```password123```. The default password for all randomly generated users is ```password123```. 
 
-We are declaring that we have used the [LinkedIn Learning course](https://www.linkedin.com/learning/ruby-on-rails-6-essential-training) and 5CCS2SEG lecture material to support us as well as general learning from other online resources. The footer was heavily inspired by [mdbootstrap](https://mdbootstrap.com/docs/jquery/navigation/footer/).
+We are declaring that we have used the [LinkedIn Learning course](https://www.linkedin.com/learning/ruby-on-rails-6-essential-training) and 5CCS2SEG lecture material to support us as well as general learning from other online resources. The footer was heavily inspired by [mdbootstrap](https://mdbootstrap.com/docs/jquery/navigation/footer/). The random behavior was supported by [faker](https://github.com/faker-ruby/faker).
 
 We have also submitted all our source code, a specification of the code, a report and a PDF document containing the ER diagram for our final database design.
 
