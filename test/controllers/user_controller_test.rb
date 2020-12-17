@@ -29,13 +29,6 @@ class UserControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to users_path
   end
 
-  test "should get update" do
-    patch users_path(@user), params: {user:{admin: @admin, first_name: "Apple", middle_name: "Grape", last_name: "Grape", email: "grape@email.com", email_confirmation: "grape@email.com", password: "grape1", password_confirmation: "grape1", currency_id: @currency[:id]}}
-    assert_redirected_to user_path(@user)
-    @user.reload
-    assert_equal "Apple", @user.first_name
-  end
-
   test "should get destroy" do
     user = users(:one)
     assert_difference('User.count',-1) do
