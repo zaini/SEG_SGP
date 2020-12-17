@@ -1,6 +1,5 @@
 class CreateUsers < ActiveRecord::Migration[6.0]
   def change
-    # this will automatically have a primary key ID
     create_table :users do |t|
       t.belongs_to :admin
       t.integer :currency_id
@@ -9,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :email
       t.string :password
-
+      
       t.timestamps
     end
   end
