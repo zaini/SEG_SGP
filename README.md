@@ -77,7 +77,7 @@ You can follow these guides for deploying to Heroku:
 
 When deploying this application, you may need to also run the following commands:
 
-* ```rails db:migrate```
+* ```rails db:migrate``` / ```rails db:migrate``` / ```rake db:reset``` 
 
 * ```bundle install```
 
