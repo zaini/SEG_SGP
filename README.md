@@ -1,4 +1,6 @@
-# King's Banking App
+# [King's Banking App](https://kingsbanking.herokuapp.com/)
+
+![img](https://github.com/zaini/SEG_SGP/blob/main/app/assets/images/logos/logo_h.png?raw=true)
 
 ### By Team Topi: Ali Zaini, Jian Tey, Bowen Yang, Quan Zhou (and Siyuan Zhang)
 ### Important Information.
@@ -17,6 +19,25 @@ We are declaring that we have used the [LinkedIn Learning course](https://www.li
 We have also submitted all our source code, a specification of the code, a report and a PDF document containing the ER diagram for our final database design.
 
 This README contains other userful information about our development process.
+
+# Features
+
+* The site is made to look like a real bank, with multiple fake pages such as a contact page and loans etc.
+* You can access the admin panel by going to /admin or by clicking the link hidden in the footer of the site
+* You can create and log into your admin account
+* Admin's can access an admin panel where they can manage (CRUD) their users, the users bank accounts and the bank account transactions
+* Admins can click a button to populate their account with multiple users, bank accounts and transactions
+* You can log into your user account like a real bank account to manage your bank accounts and transactions
+* You can view the bank statement of any bank account
+* You can transfer money between your bank accounts
+* You can make payments from your bank account which will be deduced from your account
+* You can easily create currencies for the application from the command line, by running the rails console and just doing something like ````Currency.create(code: "GBP", symbol: "£", rate_to_gbp: 1)````
+* There is validation and checks for the user being logged in throughout the application
+
+Admins can create and manage everything about Users. Users will can have multiple bank accounts, which in turn have many transactions. These transactions can have money going in and out.
+All the transactions are technically stored in GBP and the converted to whatever currency is set for the User who owns that account.
+
+There are many more nifty features throughout the application which we encourage your to try out. Please keep in mind we had to limit the scope of this project due to a missing member and that you should really consider our peer assessments when evaluating thsi project.
 
 # Installation
 
