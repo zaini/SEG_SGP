@@ -3,7 +3,7 @@ class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :edit, :update, :destroy]
   
   def index
-    @transactions = @bank_account.transactions
+    @transactions = @bank_account.transactions.order(:date).reverse_order
   end
  
   def new 
