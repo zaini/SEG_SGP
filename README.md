@@ -31,7 +31,7 @@ This README contains other userful information about our development process.
 * You can view the bank statement of any bank account
 * You can transfer money between your bank accounts
 * You can make payments from your bank account which will be deduced from your account
-* You can easily create currencies for the application from the command line, by running the rails console and just doing something like ````Currency.create(code: "GBP", symbol: "£", rate_to_gbp: 1)````
+* You can easily create currencies for the application from the command line, by running the rails console and just doing something like ```Currency.create(code: "GBP", symbol: "£", rate_to_gbp: 1)```
 * There is validation and checks for the user being logged in throughout the application
 
 Admins can create and manage everything about Users. Users will can have multiple bank accounts, which in turn have many transactions. These transactions can have money going in and out.
@@ -67,7 +67,19 @@ You can then run all your tests like this: ```ruby -Itest test/unit/post_test.rb
 
 # Deployment
 
-Instructions on how to deploy (to Heroku) and view the current deployment will be added here.
+You can follow these guides for deploying to Heroku:
+
+* https://devcenter.heroku.com/articles/git
+
+* https://devcenter.heroku.com/articles/github-integration
+
+When deploying this application, you may need to also run the following commands:
+
+* ```bundle install```
+
+* ```yarn install --check-files```
+
+You can access the Ruby on Rails console by running ```rails c``` and then use that to create currencies as described in the features section above.
 
 # How To Contribute
 
