@@ -63,7 +63,9 @@ You should be able to run the migrations by simply running ```rails db:migrate``
 
 To run your tests you'll need to load the test database by running ```rake db:test:load```
 
-You can then run all your tests like this: ```ruby -Itest test/unit/post_test.rb``` or run a specific test method like this: ```ruby -Itest test/unit/post_test.rb -n test_the_truth```
+You can run all the tests by simplying running ```rails test```
+
+You can then run all your tests in a file like this: ```ruby -Itest test/unit/post_test.rb``` or run a specific test method like this: ```ruby -Itest test/unit/post_test.rb -n test_the_truth```
 
 # Deployment
 
@@ -74,6 +76,8 @@ You can follow these guides for deploying to Heroku:
 * https://devcenter.heroku.com/articles/github-integration
 
 When deploying this application, you may need to also run the following commands:
+
+* ```rails db:migrate```
 
 * ```bundle install```
 
