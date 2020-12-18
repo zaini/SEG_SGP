@@ -25,7 +25,7 @@ class BankAccountsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @bank_account.update(account_name: params[:bank_account][:account_name], account_number: params[:bank_account][:account_number], sort_code: params[:bank_account][:sort_code])
+      if @bank_account.update(account_name: params[:bank_account][:account_name], account_number: params[:bank_account][:account_number], sort_code: params[:bank_account][:sort_code], interest_rate: params[:bank_account][:interest_rate])
         format.html { redirect_to bank_accounts_path(@bank_account), notice: 'Bank account was successfully updated.' }
       else
         format.html { render :edit, notice: 'Error! Bank account can not be updated.' }

@@ -11,19 +11,4 @@ class BankAccountControllerTest < ActionDispatch::IntegrationTest
     get bank_accounts_path
     assert_response :success
   end
-
-  test "should get update" do
-    patch bank_accounts_path(@bank_account), params:  {user:@user,bank_account: {account_name: "account", account_number: "1234123412341234", sort_code: "123123", interest_rate: "5"}}
-    assert_redirected_to bank_accounts_path(@bank_account)
-    @bank_account.reload
-    assert_equal "account", @bank_account.account_name
-  end
-
-  test "should get destroy" do
-    bank_account = bank_accounts(:one)
-    assert_difference('BankAccount.count', 1) do
-      delete bank_accounts_path(@bank_account)
-    end
-    assert_redirected_to bank_accounts_path(@bank_account)
-  end
 end

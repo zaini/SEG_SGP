@@ -4,8 +4,10 @@ one:
   account_name: MyString
   account_number: 1
   sort_code: MyString
+  interest_rate: 2
 
 two:
   account_name: MyString
   account_number: 1
   sort_code: MyString
+  interest_rate: 2

@@ -33,9 +33,8 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get destroy" do
-    transaction = transactions(:one)
     assert_difference('Transaction.count',-1) do
-      delete bank_account_transaction_path(@account,@transaction)
+      delete bank_account_transaction_path(@account, @transaction)
     end
     assert_redirected_to bank_account_transactions_path(@account)
   end
