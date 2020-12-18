@@ -21,7 +21,7 @@ class BankAccountControllerTest < ActionDispatch::IntegrationTest
 
   test "should get destroy" do
     bank_account = bank_accounts(:one)
-    assert_difference('BankAccounts.count',1) do
+    assert_difference('BankAccount.count', 1) do
       delete bank_accounts_path(@bank_account)
     end
     assert_redirected_to bank_accounts_path(@bank_account)
